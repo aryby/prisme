@@ -54,9 +54,10 @@ class SubmissionController extends Controller
             ]
         );
 
-        // If user was just created, send email with password
+        // If user was just created, send email with password and verification steps
         if ($user->wasRecentlyCreated) {
             Mail::to($user->email)->send(new SubmissionConfirmation($user, $randomPassword));
+            $user->sendEmailVerificationNotification();
         }
 
         // Handle file upload
@@ -81,6 +82,6 @@ class SubmissionController extends Controller
         // Log in the user and redirect to the author dashboard
         Auth::login($user);
 
-        return redirect()->route('author.dashboard')->with('status', 'Paper submitted successfully and is under review. Your account is not yet active. Please check your email for login details.');
+        return redirect()->to(route('filament.author.pages.dashboard'))->with('status', 'Paper submitted successfully and is under review. Your account is not yet active. Please check your email for login details.');
     }
 }

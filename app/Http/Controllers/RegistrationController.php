@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegistrationConfirmation;
 use App\Models\Registration;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -59,8 +60,8 @@ class RegistrationController extends Controller
                 'status' => 'pending',
             ]);
 
-            // Send email with password (you'll need to set up mail configuration)
-            // Mail::to($user->email)->send(new NewUserRegistrationMail($password));
+            Mail::to($user->email)->send(new RegistrationConfirmation($user, $password));
+            $user->sendEmailVerificationNotification();
 
             // Log in the newly created user
             Auth::login($user);
@@ -87,7 +88,9 @@ class RegistrationController extends Controller
             'receipt_file' => null, // No file upload in current form
         ]);
 
-        return redirect()->route('author.dashboard')
+        $redirectRoute = Auth::user()->isAdmin() ? '/admin' : route('filament.author.pages.dashboard');
+
+        return redirect()->to($redirectRoute)
             ->with('success', 'Registration submitted successfully! Your payment is under review.');
     }
 

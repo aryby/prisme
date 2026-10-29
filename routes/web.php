@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CallForPapersController;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\PaperController as AdminPaperController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -39,9 +39,24 @@ Route::view('/attendees', 'attendees')->name('attendees');
 Route::view('/history', 'history')->name('history');
 
 // Authentication Routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::redirect('/login', '/admin/login')->name('login');
+Route::redirect('/author', '/author/login');
+Route::redirect('/author/login', '/author/dashboard/login');
+Route::redirect('/author/logout', '/author/dashboard/logout');
+Route::post('/logout', function () {
+    Illuminate\Support\Facades\Auth::logout();
+
+    return redirect('/');
+})->name('logout');
+
+// Email verification routes
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed'])
+    ->name('verification.verify');
+
+Route::post('/email/verification-notification', [VerificationController::class, 'send'])
+    ->middleware(['auth', 'throttle:6,1'])
+    ->name('verification.send');
 
 // Registration Routes
 Route::get('/registration', [App\Http\Controllers\RegistrationController::class, 'index'])->name('registration');

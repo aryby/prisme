@@ -52,7 +52,7 @@
                                 @if (auth()->user()->isAdmin())
                                     <li><a href="{{ route('admin.dashboard') }}">ADMIN DASHBOARD</a></li>
                                 @elseif(auth()->user()->isAuthor())
-                                    <li><a href="{{ route('author.dashboard') }}">AUTHOR DASHBOARD</a></li>
+                                    <li><a href="{{ route('filament.author.pages.dashboard') }}">AUTHOR DASHBOARD</a></li>
                                 @endif
 
                                 {{-- Show logout link for authenticated users --}}
