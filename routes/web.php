@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
@@ -39,9 +40,12 @@ Route::view('/attendees', 'attendees')->name('attendees');
 Route::view('/history', 'history')->name('history');
 
 // Authentication Routes
-Route::redirect('/login', '/admin/login')->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::redirect('/admin/login', '/login');
 Route::redirect('/author', '/author/login');
-Route::redirect('/author/login', '/author/dashboard/login');
+Route::redirect('/author/login', '/login');
+Route::redirect('/author/dashboard/login', '/login');
 Route::redirect('/author/logout', '/author/dashboard/logout');
 Route::post('/logout', function () {
     Illuminate\Support\Facades\Auth::logout();
