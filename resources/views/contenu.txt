@@ -1,0 +1,274 @@
+Home
+The Multidisciplinary Research Laboratory in Social Engineering and Business
+ Management (PRISME) (PRISME'26)
+The International Conference on Digital Economy, Smart Business & Data Innovation (PRISME'26) aims to serve as a premier interdisciplinary platform for researchers, academics, practitioners, and policymakers to exchange knowledge and discuss emerging trends, challenges, and breakthroughs shaping the digital economy.
+The rise of artificial intelligence (AI), machine learning, and data analytics has transformed how businesses create value, governments design policy, and consumers engage with digital ecosystems. PRISME'26 seeks to explore these transformations through the lenses of technology, innovation, and economic development — connecting cutting-edge research with real-world applications.
+This conference provides a venue for scholarly collaboration and knowledge exchange in the fields of digital economy, smart business, innovation management, data-driven decision-making, and emerging technologies. 
+Accepted and presented papers will be published in the Springer Proceedings in Business and Economics (SPBE) and submitted for indexing in Scopus and Web of Science (subject to Springer’s indexing policy).( in pending)
+ Conference Objectives
+PRISME'26 seeks to:
+Promote interdisciplinary research bridging business, economics, and applied technology.
+Explore the impact of data-driven innovation on digital transformation and competitiveness.
+Highlight real-world applications of AI, analytics, and smart technologies in business ecosystems.
+Provide an international networking platform connecting academia, industry, and policy institutions.
+Disseminate actionable insights that foster sustainable and inclusive digital growth.
+
+Topics Include but not Limited To:
+Track 1: Digital Economy, Governance & Policy
+  Digital economic transformation and growth models
+  E-governance, digital inclusion, and sustainable development
+  Innovation policy and digital competitiveness
+  Smart regulation and data governance frameworks
+  Economic resilience and digital infrastructure investment
+  Public policy for digital entrepreneurship
+  Global digital trade and cross-border e-commerce
+  Cybersecurity and digital sovereignty
+
+Track 2: Smart Business Models and Innovation 
+Smart business ecosystems and digital entrepreneurship
+Strategic management in the age of AI and data
+Business model innovation and transformation frameworks
+Project, quality, and risk management in digital enterprises
+Sustainable and circular business models
+Innovation culture and intrapreneurship
+Knowledge management and organizational learning
+Digital leadership and change management
+Track 3: Data Innovation and Analytics 
+Big data analytics for business decision-making
+Predictive analytics and forecasting models
+Business intelligence and visualization tools
+Data-driven marketing and consumer insights
+Customer relationship analytics (CRM, CLV, RFM models)
+Quantitative modeling and econometric forecasting
+Financial analytics, credit scoring, and portfolio optimization
+AI-enhanced decision support systems
+Track 4: Emerging Technologies and Applications
+Machine learning, deep learning, and hybrid architectures
+Natural language processing and sentiment analysis
+Computer vision and multimodal AI applications
+Generative AI, ethics, and responsible innovation
+Blockchain, fintech, and digital currencies
+Internet of Things (IoT) and Industrial 5.0/4.0 applications
+Cloud, edge, and quantum computing in business analytics
+AR/VR and immersive technologies for marketing and management
+Track 5: Regional and Sectoral Case Studies
+Digital economy in emerging markets and developing countries
+Smart cities and urban innovation ecosystems
+E-commerce and retail transformation in Africa, MENA, and Asia
+Digital tourism and hospitality management
+Agritech, fintech, and edtech innovation ecosystems
+Healthcare digitalization and health informatics
+Green technology and sustainable innovation
+Cross-sector collaboration and digital public services
+
+Committees
+General Chairs
+Nouri Hicham (Hassan II University, Morocco) 
+Habbat Nassera (Hassan First University, Morocco)
+Programme Committee Chairs 
+Fatima Ezzahraa Ben Bouazza (Hassan First University, Morocco)
+Naoufal Rouky (Hassan First University, Morocco)
+Jaouad Dabounou (Hassan First University, Morocco)
+Ángela Hernández López (Universidad de La Laguna, Spain)
+Angelo Dela Cruz (University of Santo Tomas, Philippines)
+Aslı Bay (Antalya Bilim University, Türkiye)
+Bikram Pal Singh (Global Group of Institutes, India)
+Edeh Michael Onyema (Coal City University, Nigeria)
+Ait Boubkr Asmaâ (Hassan II University, Morocco)
+Hanane Lamaazi (College of Information Technology, UAE University,AL AIN, UAE)
+Ait El Kadi Mohamed (Hassan II University, Morocco) 
+El Aallaoui Mohamed (Hassan II University, Morocco) 
+Banane Mouad (Hassan II University, Morocco)
+Adnène Arbi (University of Carthage, Carthage, Tunisia)
+Bakhat Mohcine (Hassan II University, Morocco)
+Daniele Sartiano (Consiglio Nazionale delle Ricerche, Italy)
+Deivis Avila Prats (Universidad de La Laguna, Spain)
+Deniz Gençağa (Antalya Bilim University, Türkiye)
+El Attar Abderrahim (Hassan II University, Morocco)
+El Hachloufi Mostafa (Hassan II University, Morocco)
+El Hia Mohamed (Hassan II University, Morocco)
+Elouadi Sara (Hassan II University, Morocco)
+Es-Sabir Abdelouahad (Hassan II University, Morocco)
+Ezziani Abdelaâziz (Hassan II University, Morocco)
+Gourch Abdelwahad (Hassan II University, Morocco)
+Guerbaz Raby (Hassan II University, Morocco)
+Hakmaoui Abdelati (Hassan II University, Morocco)
+Technical Program Committees
+Kadiri Abderrahim (Hassan II University, Morocco)
+Mohammed Eddabah (Cadi Ayyad University Marrakech, Morocco)
+Youssef Taouil (Cadi Ayyad University Marrakech, Morocco)
+Maryeme Douiba (Cadi Ayyad University Marrakech, Morocco)
+Chaimae Hazman (Cadi Ayyad University Marrakech, Morocco)
+Sara Amaouche; (Cadi Ayyad University Marrakech, Morocco)
+Hana Attou; (Cadi Ayyad University Marrakech, Morocco)
+Anass Cherrafi; (Cadi Ayyad University Marrakech, Morocco)
+Veselina Nedeva (Trakia University, Bulgaria)
+Vinod Yadav (Tomas Bata University Zlin, Czech Republic)
+Wen-Cheng Lai (National Taiwan Univ. of Sci. and Tech., Taiwan)
+Wiesam Essa (University of Manchester, United Kingdom)
+Wilfried Wunderlich (Tokai University, Japan)
+Ümit Demirbaş (Antalya Bilim University, Türkiye)
+Yogesh Kumar Meena (University of Essex, UK)
+Yoshiaki Hagiwara (AIPS Lab, Japan)
+Yusuf Öztürk (Antalya Bilim University, Türkiye)
+Zahra Golrizkhatami (Antalya Bilim University, Türkiye)
+Legdali Btissam (Hassan II University, Morocco)
+Maameri Adil (Hassan II University, Morocco)
+Mesrar Asmaa (Hassan II University, Morocco)
+Yaacoubi Abdelhak (Hassan II University, Morocco)
+Zari Tarek (Hassan II University, Morocco)
+Imran HOSSAIN( University of Rajshahi, Rajshahi, Bangladesh)
+Abdulatif ALABDULTIF(Qassim University, Buraydah, Saudi Arabia)
+Zeyneb KILIÇ (Adıyaman University, Adıyaman, Türkiye)
+Jermin Jeaunita (RMK Engineering College India)
+Vinay Gugueoth (University of the Cumberlands, Williamsburg, USA)
+Shahrear Iqbal ( National Research Council Canada, Ottawa, Ontario, Canada)
+Hamdan Abdellatef, Universiti Teknologi of Malaysia, Malaysia
+Hilal Kazan (Antalya Bilim University, Türkiye)
+Jehad Mahmoud Hamamreh (Antalya Bilim University, Türkiye)
+José Ángel Rodríguez (Universidad de La Laguna, Spain)
+Jossy George Christ (Deemed to be University India)
+Kamer Özgün (Antalya Bilim University, Türkiye)
+Liviu Cristian Miclea ( Technical University of Cluj-Napoca, Romania)
+Marco Barenkamp (LMIS AG, Germany)
+Maria Anastasiadou (Universidade Nova de Lisboa, Portugal)
+Maria Moussa (American University of Beirut, Lebanon)
+Marin Milkov Zhilevski (Technical University of Sofia, Bulgaria)
+Important Dates
+Abstract submission deadline
+15 November 2026
+Notification of acceptance
+19 November 2026
+Full paper submission
+9 December 2026
+Symposium dates
+17-18 December 2026
+Final versions for publication
+31 January 2027
+ Call for Paper/ Abstract
+The International Conference on Digital Economy, Smart Business & Data Innovation (PRISME'26) is an international academic forum dedicated to advancing interdisciplinary research on the intersection of technology, business, and economics. The conference aims to provide a platform for scholars, practitioners, and policymakers to present and discuss innovative approaches, empirical findings, and theoretical developments related to digital transformation, data-driven innovation, and intelligent business ecosystems.
+Digitalization and artificial intelligence are reshaping industries, markets, and policy frameworks worldwide. PRISME'26 seeks to explore these transformations through scientific inquiry and practical insights, fostering a dialogue that connects academia, industry, and government.
+Conference Tracks
+Topics Include but not Limited To:
+Track 1: Digital Economy, Governance & Policy
+  Digital economic transformation and growth models
+  E-governance, digital inclusion, and sustainable development
+  Innovation policy and digital competitiveness
+  Smart regulation and data governance frameworks
+  Economic resilience and digital infrastructure investment
+  Public policy for digital entrepreneurship
+  Global digital trade and cross-border e-commerce
+  Cybersecurity and digital sovereignty
+
+Track 2: Smart Business Models and Innovation 
+Smart business ecosystems and digital entrepreneurship
+Strategic management in the age of AI and data
+Business model innovation and transformation frameworks
+Project, quality, and risk management in digital enterprises
+Sustainable and circular business models
+Innovation culture and intrapreneurship
+Knowledge management and organizational learning
+Digital leadership and change management
+Track 3: Data Innovation and Analytics 
+Big data analytics for business decision-making
+Predictive analytics and forecasting models
+Business intelligence and visualization tools
+Data-driven marketing and consumer insights
+Customer relationship analytics (CRM, CLV, RFM models)
+Quantitative modeling and econometric forecasting
+Financial analytics, credit scoring, and portfolio optimization
+AI-enhanced decision support systems
+Track 4: Emerging Technologies and Applications
+Machine learning, deep learning, and hybrid architectures
+Natural language processing and sentiment analysis
+Computer vision and multimodal AI applications
+Generative AI, ethics, and responsible innovation
+Blockchain, fintech, and digital currencies
+Internet of Things (IoT) and Industrial 5.0/4.0 applications
+Cloud, edge, and quantum computing in business analytics
+AR/VR and immersive technologies for marketing and management
+Track 5: Regional and Sectoral Case Studies
+Digital economy in emerging markets and developing countries
+Smart cities and urban innovation ecosystems
+E-commerce and retail transformation in Africa, MENA, and Asia
+Digital tourism and hospitality management
+Agritech, fintech, and edtech innovation ecosystems
+Healthcare digitalization and health informatics
+Green technology and sustainable innovation
+Cross-sector collaboration and digital public services
+
+Instructions for authors 
+ Papers Preparation
+All materials submitted to PRISME'26 Conference must be original, unpublished research that is not currently under review for any other conference or journal. Papers not following these guidelines may be rejected without review. Also, submissions received after the due date, exceeding the length limit, or not appropriately structured may also not be considered.
+
+Full papers must be in English and submitted in word format. Each paper must be in the range of 10 - 20 pages.
+Abstract must be in English or French submitted in word format.
+The PRISME template for preparing a full paper and Abstract can be downloaded here ( full paper template/ Abstract template)
+Peer Review Process
+The conference will check plagiarism for all articles before publication. If plagiarism is observed by the scientific committee, peer reviewers, or staff members at any stage of the publication process, the author will be informed to rewrite the manuscript.
+If the submitted original manuscript is more than 20% plagiarized, the article will be rejected, and the same will be notified to the author.
+Paper content (unpublished work) must be original and relevant to one of the many conference topics.
+The acceptance decisions will take into account paper novelty, technical depth, elegance, and practical and theoretical impact.
+Each paper will be reviewed by two SC members.
+The acceptance decisions will take into account originality, practical & theoretical impact, and paper presentation.
+Changes cannot be made during the review process. If accepted, minor revisions may be made prior to final submission.
+
+Submission
+Authors are invited to choose between two submission options:
+Abstract Submission
+Authors who wish to present their research at the conference without pursuing publication are encouraged to submit an abstract by 15 November 2026. This option is ideal for those interested in sharing their findings and receiving feedback from peers, without the requirement to publish in the conference proceedings.
+
+Full Paper Submission
+Authors seeking publication opportunities must submit a full paper by 9 December 2026. All submissions will undergo a rigorous peer-review process to ensure academic quality and thematic relevance.
+
+Accepted papers will have the opportunity to be published in one of the following outlets:
+- International Journal of Intelligent Management and Data Systems
+- The International Journal of Economic and Management Decisions 
+The Scientific Committee will recommend the most suitable publication outlet for each accepted paper based on its topic and quality. Authors will be kept informed throughout the review and selection process.
+We look forward to your contributions and to welcoming you to PRISME'26 
+Registration
+Conference Registration
+Welcome to the registration portal for International Conference on Digital Economy, Smart Business & Data Innovation (PRISME'26). Please complete the form below to register as a presenter or participant.
+To confirm your registration, kindly ensure the registration fee is paid and a payment receipt is sent to: prisme26@prisme.org.
+We look forward to your participation!
+Registration Fee
+Registration Type
+EARLY REGISTRATION
+Before March 1st, 2026
+LATE REGISTRATION
+After March 20th, 2026
+Student paper registration 
+70 €/ 70 USD 
+90 €/ 90 USD
+Professional / Researcher paper registration
+90€/ 90 USD
+120€/ 120 USD
+Extra Paper registration 
+60 €/ 60 USD
+80 €/ 80 USD
+Abstract registration 
+30 €/ 30 USD
+40 €/ 40 USD
+authors Attending registration 
+20 €/ 20 USD
+30 €/ 30 USD
+Exchange rate: 1 € ≈ 10 MAD
+Conference Fees Cover:
+Access to all conference sessions
+Publication of your paper in the official journals
+One printed and one digital copy of the journals
+Certificate of participation
+Certificate of Publication
+Publication fees
+Bank Information
+Bank Name: CIH Bank 
+Beneficiary: Moroccan Association for Smart Systems, Innovation and Research (MASSIR)
+IBAN: 011 330 0000142000001546 25
+SWIFT Code: CIHMAMC
+Reference: PRISME'26
+Registration Payment
+After completing your payment, please email your payment receipt to prisme26@prisme.org with your full name and submission ID (if applicable).
+Your registration will be confirmed once payment is received. Thank you!
+Further Inquiry:
+
+For any other related information or inquiry regarding the payment, the transaction methods, or difficulties in the registration process, the authors should send an email as soon as possible to prisme26@prisme.org with PaperID, Paper Title, Author(s), and Affiliation included.
