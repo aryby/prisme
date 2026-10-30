@@ -181,6 +181,13 @@ class PaperResource extends Resource
                     ->visible(fn (Paper $record): bool => filled($record->file_path)
                         && (auth()->user()?->isAdmin()
                             || (auth()->user()?->isAuthor() && $record->author_id === auth()->id()))),
+                Action::make('downloadCertificate')
+                    ->label('Download certificate')
+                    ->icon('heroicon-o-academic-cap')
+                    ->url(fn (Paper $record): string => route('author.papers.certificate', $record))
+                    ->visible(fn (Paper $record): bool => filled($record->certificate_path)
+                        && auth()->user()?->isAuthor()
+                        && $record->author_id === auth()->id()),
             ])
             ->bulkActions([
                 DeleteBulkAction::make()

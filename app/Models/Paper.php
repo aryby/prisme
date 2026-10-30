@@ -23,6 +23,8 @@ class Paper extends Model
         'phone',
         'file_path',
         'file_disk',
+        'certificate_path',
+        'certificate_sent_at',
         'status',
         'submitted_at',
     ];
@@ -31,6 +33,7 @@ class Paper extends Model
     {
         return [
             'submitted_at' => 'datetime',
+            'certificate_sent_at' => 'datetime',
         ];
     }
 

@@ -1,20 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\PaperPreviewController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Author\CertificateDownloadController;
+use App\Http\Controllers\Author\PaperDownloadController as AuthorPaperDownloadController;
 use App\Http\Controllers\CallForPapersController;
 use App\Http\Controllers\CommitteeController;
-use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\PaperController as AdminPaperController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Reviewer\PaperDownloadController;
-use App\Http\Controllers\Author\PaperDownloadController as AuthorPaperDownloadController;
-use App\Http\Controllers\Admin\PaperPreviewController;
+use App\Http\Controllers\SubmissionController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // Placeholder controllers using single-action closures for simple static pages
 
@@ -54,7 +53,7 @@ Route::redirect('/author/login', '/login');
 Route::redirect('/author/dashboard/login', '/login');
 Route::redirect('/author/logout', '/author/dashboard/logout');
 Route::post('/logout', function () {
-    Illuminate\Support\Facades\Auth::logout();
+    Auth::logout();
 
     return redirect('/');
 })->name('logout');
@@ -66,6 +65,10 @@ Route::get('/reviewer/reviews/{review}/paper', PaperDownloadController::class)
 Route::get('/author/papers/{paper}/pdf', AuthorPaperDownloadController::class)
     ->middleware('auth')
     ->name('author.papers.pdf');
+
+Route::get('/author/papers/{paper}/certificate', CertificateDownloadController::class)
+    ->middleware('auth')
+    ->name('author.papers.certificate');
 
 Route::get('/admin/papers/{paper}/pdf', PaperPreviewController::class)
     ->middleware('auth')

@@ -33,6 +33,8 @@ php artisan storage:link
 
 The PHP runtime must also allow uploads larger than 10 MB for slider images. Set `upload_max_filesize` to at least `16M` and `post_max_size` to at least `20M`, then restart the PHP web server. Livewire's temporary upload limit is configured to 16 MB; the slider form accepts images up to 10 MB.
 
+Administrators can upload and email a PDF certificate from a paper's edit page, customizing the email subject and message for each send. Authors can download certificates attached to their submissions from the author dashboard.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
