@@ -51,6 +51,10 @@ class LoginController extends Controller
             return redirect()->intended($this->panelRoute('author', '/author/dashboard'));
         }
 
+        if ($user->isReviewer()) {
+            return redirect()->intended($this->panelRoute('reviewer', '/reviewer/dashboard'));
+        }
+
         return redirect()->intended('/');
     }
 

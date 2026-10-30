@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Committee - PRISME 2026')
-@section('description', 'Meet the distinguished committee members of PRISME 2026, including the honorary committee, steering committee, scientific committee, and symposium secretariat.')
+@section('title', 'Committee -SIPRISME 2026')
+@section('description', 'Meet the distinguished committee members ofSIPRISME 2026, including the honorary committee, steering committee, scientific committee, and symposium secretariat.')
 
 @section('content')
     <div class="row-fluid">

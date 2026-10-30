@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Paper Submission - PRISME 2026')
-@section('description', 'Submission guidelines for PRISME 2026. Learn about abstract and full paper requirements, review process, and submission details.')
+@section('title', 'Paper Submission -SIPRISME 2026')
+@section('description', 'Submission guidelines forSIPRISME 2026. Learn about abstract and full paper requirements, review process, and submission details.')
 
 @section('content')
     <div class="row-fluid">
@@ -37,7 +37,7 @@
                 </ul>
 
                 <p>
-                    Proposals are evaluated through a double-blind peer review process by the Scientific Committee. They must be submitted in Word format to: <a href="mailto:siprisme26@siprisme.org">siprisme26@siprisme.org</a>
+                    Proposals are evaluated through a double-blind peer review process by the Scientific Committee. Upload your paper as a PDF using the form below.
                 </p>
             </div>
         </div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label" for="track">Conference Track *</label>
+                        <label class="control-label" for="track">Symposium Track *</label>
                         <div class="controls">
                             <select id="track" name="track" class="input-xlarge" required>
                                 <option value="">Select a track</option>
@@ -187,7 +187,7 @@
                         <label class="control-label" for="file">Upload Paper *</label>
                         <div class="controls">
                             <input type="file" id="file" name="file" accept=".pdf" required>
-                            <p class="help-block">PDF format only, maximum 8 pages, file size limit: 10MB</p>
+                            <p class="help-block">PDF format only, maximum file size: 10 MB.</p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                         <div class="controls">
                             <label class="checkbox">
                                 <input type="checkbox" name="originality" required>
-                                I confirm that this paper is original and has not been published elsewhere, nor is it currently under review by another conference or journal. *
+                                I confirm that this paper is original and has not been published elsewhere, nor is it currently under review by another Symposium or journal. *
                             </label>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
                         <div class="controls">
                             <label class="checkbox">
                                 <input type="checkbox" name="copyright" required>
-                                I agree to transfer copyright to PRISME 2026 if the paper is accepted for publication. *
+                                I agree to transfer copyright toSIPRISME 2026 if the paper is accepted for publication. *
                             </label>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                         <div class="controls">
                             <label class="checkbox">
                                 <input type="checkbox" name="attendance" required>
-                                I understand that at least one author must register and attend the conference to present the paper if accepted. *
+                                I understand that at least one author must register and attend the Symposium to present the paper if accepted. *
                             </label>
                         </div>
                     </div>

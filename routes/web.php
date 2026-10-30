@@ -12,6 +12,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\PaperController as AdminPaperController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Reviewer\PaperDownloadController;
+use App\Http\Controllers\Author\PaperDownloadController as AuthorPaperDownloadController;
+use App\Http\Controllers\Admin\PaperPreviewController;
 
 // Placeholder controllers using single-action closures for simple static pages
 
@@ -27,13 +30,16 @@ Route::get('/committee', [CommitteeController::class, 'index'])->name('committee
 Route::get('/submission', [SubmissionController::class, 'index'])->name('submission');
 Route::post('/submission', [SubmissionController::class, 'store'])->name('submission.store');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.store');
+Route::view('/venue', 'venue')->name('venue');
 Route::view('/program', 'program')->name('program'); // Static view for program page :::
 
 // New navbar pages (placeholders for now)
 Route::view('/committees', 'committees')->name('committees');
 Route::view('/speakers', 'speakers')->name('speakers');
 Route::view('/calls', 'calls')->name('calls');
-Route::view('/registration', 'registration')->name('registration');
 Route::view('/publication', 'publication')->name('publication');
 Route::view('/dates-news', 'dates-news')->name('dates-news');
 Route::view('/attendees', 'attendees')->name('attendees');
@@ -53,6 +59,18 @@ Route::post('/logout', function () {
     return redirect('/');
 })->name('logout');
 
+Route::get('/reviewer/reviews/{review}/paper', PaperDownloadController::class)
+    ->middleware('auth')
+    ->name('reviewer.reviews.paper');
+
+Route::get('/author/papers/{paper}/pdf', AuthorPaperDownloadController::class)
+    ->middleware('auth')
+    ->name('author.papers.pdf');
+
+Route::get('/admin/papers/{paper}/pdf', PaperPreviewController::class)
+    ->middleware('auth')
+    ->name('admin.papers.pdf');
+
 // Email verification routes
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
     ->middleware(['auth', 'signed'])
@@ -61,7 +79,3 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 Route::post('/email/verification-notification', [VerificationController::class, 'send'])
     ->middleware(['auth', 'throttle:6,1'])
     ->name('verification.send');
-
-// Registration Routes
-Route::get('/registration', [App\Http\Controllers\RegistrationController::class, 'index'])->name('registration');
-Route::post('/registration', [App\Http\Controllers\RegistrationController::class, 'store'])->name('registration.store');

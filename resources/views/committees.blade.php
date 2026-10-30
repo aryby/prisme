@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Committees - PRISME 2026')
+@section('title', 'Committees -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>Conference Committees</div>
+            <div>Symposium Committees</div>
         </div>
         <div class="text-center">
             <p class="lead">
-                Meet the distinguished committee members of PRISME 2026
+                Meet the distinguished committee members ofSIPRISME 2026
             </p>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="well text-center">
             <h3>Committee Information</h3>
             <p>
-                Detailed information about all conference committees is available on our 
+                Detailed information about all Symposium committees is available on our 
                 <a href="{{ route('committee') }}">Committee page</a>.
             </p>
             <p>

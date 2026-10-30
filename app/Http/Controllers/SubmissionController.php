@@ -43,25 +43,19 @@ class SubmissionController extends Controller
             'attendance' => 'required|accepted',
         ]);
 
+        $filePath = $request->file('file')->store('papers', 'local');
+
         // Find or create user
+        $randomPassword = Str::random(10);
         $user = User::firstOrCreate(
             ['email' => $request->email],
             [
                 'name' => $request->name,
-                'password' => Hash::make($randomPassword = Str::random(10)),
+                'password' => Hash::make($randomPassword),
                 'is_active' => false, // Account not active
                 'role' => 'author',
             ]
         );
-
-        // If user was just created, send email with password and verification steps
-        if ($user->wasRecentlyCreated) {
-            Mail::to($user->email)->send(new SubmissionConfirmation($user, $randomPassword));
-            $user->sendEmailVerificationNotification();
-        }
-
-        // Handle file upload
-        $filePath = $request->file('file')->store('papers', 'public');
 
         // Create paper submission
         $paper = Paper::create([
@@ -75,9 +69,15 @@ class SubmissionController extends Controller
             'country' => $request->country,
             'phone' => $request->phone,
             'file_path' => $filePath,
+            'file_disk' => 'local',
             'status' => 'under_review',
             'submitted_at' => now(),
         ]);
+
+        if ($user->wasRecentlyCreated) {
+            Mail::to($user->email)->send(new SubmissionConfirmation($user, $randomPassword));
+            $user->sendEmailVerificationNotification();
+        }
 
         // Log in the user and redirect to the author dashboard
         Auth::login($user);

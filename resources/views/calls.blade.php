@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Calls - PRISME 2026')
+@section('title', 'Calls -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>Conference Calls</div>
+            <div>Symposium Calls</div>
         </div>
         <div class="text-center">
             <p class="lead">
-                Various calls and opportunities for PRISME 2026
+                Various calls and opportunities forSIPRISME 2026
             </p>
         </div>
     </div>
@@ -33,7 +33,7 @@
         <div class="well">
             <h3>Call for Workshops</h3>
             <p>
-                We welcome proposals for workshops that complement the main conference program. 
+                We welcome proposals for workshops that complement the main Symposium program. 
                 For workshop proposals, please contact us at <strong>prisme26@prisme.org</strong>
             </p>
         </div>
@@ -45,7 +45,7 @@
         <div class="well">
             <h3>Call for Sponsorship</h3>
             <p>
-                We offer various sponsorship opportunities for organizations interested in supporting PRISME 2026. 
+                We offer various sponsorship opportunities for organizations interested in supportingSIPRISME 2026. 
                 For sponsorship information, please contact us at <strong>prisme26@prisme.org</strong>
             </p>
         </div>

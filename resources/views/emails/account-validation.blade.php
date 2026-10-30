@@ -1,6 +1,6 @@
 <p>Dear {{ $user->name }},</p>
 
-<p>Welcome to PRISME 2026.</p>
+<p>Welcome toSIPRISME 2026.</p>
 
 <p>To complete your registration and activate your account, please verify your email address by clicking the button below:</p>
 

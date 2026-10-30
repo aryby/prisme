@@ -46,6 +46,9 @@
 
                             <li><a href="{{ route('submission') }}">SUBMISSION</a></li>
                             <li class="divider-vertical"></li>
+                            <li><a href="{{ route('venue') }}">VENUE</a></li>
+                            <li><a href="{{ route('contact') }}">CONTACT</a></li>
+                            <li class="divider-vertical"></li>
 
                             @auth
                                 {{-- Show dashboard link based on user role --}}
@@ -66,8 +69,6 @@
                                     </form>
                                 </li>
                             @else
-                                {{-- Show registration and login links for non-authenticated users --}}
-                                <li><a href="{{ route('registration') }}">REGISTRATION</a></li>
                                 <li><a href="{{ route('login') }}">LOGIN</a></li>
                             @endauth
 

@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'About PRISME 2026 - The Multidisciplinary Research Laboratory in Social Engineering and Business
+@section('title', 'AboutSIPRISME 2026 - The Multidisciplinary Research Laboratory in Social Engineering and Business
  Management (PRISME)')
-@section('description', 'Learn about PRISME 2026, our mission, vision, and the exciting program we have planned for this premier international conference on digital economy and data innovation.')
+@section('description', 'Learn aboutSIPRISME 2026, our mission, vision, and the exciting program we have planned for this premier international Symposium on digital economy and data innovation.')
 
 @section('content')
 <!-- Page Header -->
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>About PRISME 2026</div>
+            <div>AboutSIPRISME 2026</div>
         </div>
         <div class="text-center">
             <p class="lead">
-                Discover the vision, mission, and exciting program that makes PRISME 2026 a premier destination for digital economy and data innovation research.
+                Discover the vision, mission, and exciting program that makesSIPRISME 2026 a premier destination for digital economy and data innovation research.
             </p>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <div>Our Mission</div>
         </div>
         <p class="lead">
-            PRISME 2026 aims to bring together the world's leading researchers, academics, and industry professionals to explore and discuss the latest innovations in digital economy, smart business, and data innovation. We are committed to fostering collaboration, knowledge sharing, and the advancement of cutting-edge research that will shape our digital future.
+           SIPRISME 2026 aims to bring together the world's leading researchers, academics, and industry professionals to explore and discuss the latest innovations in digital economy, smart business, and data innovation. We are committed to fostering collaboration, knowledge sharing, and the advancement of cutting-edge research that will shape our digital future.
         </p>
         <p>
             Our mission is to create a platform where groundbreaking ideas in digital transformation meet practical applications, where theoretical research transforms into real-world business solutions, and where the next generation of digital economy leaders can connect and collaborate.
@@ -36,20 +36,20 @@
         <div class="well">
             <h3>Our Vision</h3>
             <p>
-                To be the premier international conference that drives innovation in digital economy and data innovation, creating a global community of researchers and practitioners who are shaping the digital landscape of tomorrow.
+                To be the premier international Symposium that drives innovation in digital economy and data innovation, creating a global community of researchers and practitioners who are shaping the digital landscape of tomorrow.
             </p>
         </div>
     </div>
 </div>
 
-<!-- Conference Highlights -->
+<!-- Symposium Highlights -->
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>Conference Highlights</div>
+            <div>Symposium Highlights</div>
         </div>
         <p class="text-center lead">
-            What makes PRISME 2026 a must-attend event for digital economy professionals and researchers
+            What makesSIPRISME 2026 a must-attend event for digital economy professionals and researchers
         </p>
     </div>
 </div>
@@ -96,11 +96,11 @@
     </div>
 </div>
 
-<!-- Conference Program -->
+<!-- Symposium Program -->
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>Conference Program</div>
+            <div>Symposium Program</div>
         </div>
         <p class="text-center lead">
             A comprehensive program designed to maximize learning, networking, and collaboration
@@ -112,7 +112,7 @@
     <div class="span12">
         <div class="well">
             <h3>Day 1: Opening & Keynotes</h3>
-            <p>Conference opening ceremony, keynote presentations from industry leaders, and plenary sessions covering the latest trends in digital economy and data innovation.</p>
+            <p>Symposium opening ceremony, keynote presentations from industry leaders, and plenary sessions covering the latest trends in digital economy and data innovation.</p>
             <ul>
                 <li>Opening ceremony and welcome address</li>
                 <li>Keynote presentations on digital transformation and smart business</li>
@@ -127,7 +127,7 @@
     <div class="span12">
         <div class="well">
             <h3>Day 2: Research Presentations</h3>
-            <p>Parallel sessions featuring research presentations, panel discussions, and interactive workshops across all conference topics.</p>
+            <p>Parallel sessions featuring research presentations, panel discussions, and interactive workshops across all Symposium topics.</p>
             <ul>
                 <li>Parallel technical sessions</li>
                 <li>Panel discussions on digital economy trends</li>
@@ -147,7 +147,7 @@
                 <li>Innovation showcases and startup presentations</li>
                 <li>Future digital economy roadmap discussions</li>
                 <li>Closing keynote and awards ceremony</li>
-                <li>Conference dinner and networking</li>
+                <li>Symposium dinner and networking</li>
             </ul>
         </div>
     </div>
@@ -157,9 +157,9 @@
 <div class="row-fluid">
     <div class="span12">
         <div class="alert alert-info text-center">
-            <h2>Join Us at PRISME 2026</h2>
+            <h2>Join Us atSIPRISME 2026</h2>
             <p class="lead">
-                Be part of the conversation that will shape the future of digital economy and data innovation. Register now and secure your spot at this premier international conference.
+                Be part of the conversation that will shape the future of digital economy and data innovation. Register now and secure your spot at this premier international Symposium.
             </p>
             <p>
                 <a href="{{ route('submission') }}" class="btn btn-primary btn-large">Submit Your Paper</a>

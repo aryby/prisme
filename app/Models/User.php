@@ -8,7 +8,6 @@ use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
@@ -61,14 +60,14 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return $this->hasMany(Paper::class, 'author_id');
     }
 
-    public function registration(): HasOne
-    {
-        return $this->hasOne(Registration::class);
-    }
-
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class, 'reviewer_id');
+    }
+
+    public function sentMessages(): HasMany
+    {
+        return $this->hasMany(UserEmailMessage::class)->latest('sent_at');
     }
 
     public function canAccessPanel(Panel $panel): bool
@@ -76,6 +75,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return match ($panel->getId()) {
             'admin' => $this->isAdmin(),
             'author' => $this->isAuthor(),
+            'reviewer' => $this->isReviewer(),
             default => false,
         };
     }
@@ -110,6 +110,11 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     public function isAuthor(): bool
     {
         return $this->role === 'author';
+    }
+
+    public function isReviewer(): bool
+    {
+        return $this->role === 'reviewer';
     }
 
     public function isActive(): bool

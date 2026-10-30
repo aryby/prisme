@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Speakers - PRISME 2026')
+@section('title', 'Speakers -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
@@ -27,7 +27,7 @@
                 We are looking for distinguished speakers to share their expertise in digital economy, smart business, and data innovation.
             </p>
             <p>
-                If you are interested in speaking at PRISME 2026, please contact us at <strong>prisme26@prisme.org</strong>
+                If you are interested in speaking atSIPRISME 2026, please contact us at <strong>prisme26@prisme.org</strong>
             </p>
         </div>
     </div>

@@ -16,7 +16,7 @@
         </div>
 
         <div class="row g-4">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body">
                         <div class="text-muted small text-uppercase">Total Papers</div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body">
                         <div class="text-muted small text-uppercase">Under Review</div>
@@ -32,19 +32,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body">
                         <div class="text-muted small text-uppercase">Accepted</div>
                         <div class="display-6 fw-bold mt-2">{{ Auth::user()->papers()->where('status', 'accepted')->count() }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <div class="text-muted small text-uppercase">Registration</div>
-                        <div class="display-6 fw-bold mt-2">{{ Auth::user()->registration ? 'Active' : 'Pending' }}</div>
                     </div>
                 </div>
             </div>

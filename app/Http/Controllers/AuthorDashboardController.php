@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paper;
-use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +11,6 @@ class AuthorDashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $registration = $user->registration;
         $papers = $user->papers()->latest()->get();
         
         $stats = [
@@ -23,7 +21,7 @@ class AuthorDashboardController extends Controller
             'rejected_papers' => $papers->where('status', 'rejected')->count(),
         ];
 
-        return view('author.dashboard', compact('registration', 'papers', 'stats'));
+        return view('author.dashboard', compact('papers', 'stats'));
     }
 
     public function showPaper(Paper $paper)
@@ -63,7 +61,7 @@ class AuthorDashboardController extends Controller
         // Handle file upload
         $paperPath = null;
         if ($request->hasFile('paper_file')) {
-            $paperPath = $request->file('paper_file')->store('papers', 'public');
+            $paperPath = $request->file('paper_file')->store('papers', 'local');
         }
 
         Paper::create([
@@ -74,6 +72,7 @@ class AuthorDashboardController extends Controller
             'track' => $request->track,
             'status' => 'under_review', // Default status
             'file_path' => $paperPath,
+            'file_disk' => 'local',
             'submitted_at' => now(),
         ]);
 

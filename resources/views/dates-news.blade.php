@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dates & News - PRISME 2026')
+@section('title', 'Dates & News -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Stay updated with the latest news and important dates for PRISME 2026
+                Stay updated with the latest news and important dates forSIPRISME 2026
             </p>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="span12">
         <div class="well">
             <h3>Latest News</h3>
-            <p>Conference news and updates will be posted here as they become available.</p>
+            <p>Symposium news and updates will be posted here as they become available.</p>
             <p>For the latest information, please visit our website regularly or contact us at <strong>prisme26@prisme.org</strong></p>
         </div>
     </div>

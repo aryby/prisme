@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin - PRISME 2026')</title>
+    <title>@yield('title', 'Admin -SIPRISME 2026')</title>
     <link href="{{ asset('inspire.css') }}" rel="stylesheet">
     <link href="{{ asset('prisme-custom.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -153,9 +153,6 @@
                 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <i class="fas fa-users me-2"></i>Users
                 </a>
-                <a href="{{ route('admin.registrations.index') }}" class="{{ request()->routeIs('admin.registrations.*') ? 'active' : '' }}">
-                    <i class="fas fa-credit-card me-2"></i>Registrations
-                </a>
             </nav>
         </aside>
 
@@ -228,5 +225,4 @@
     </script>
 </body>
 </html>
-
 

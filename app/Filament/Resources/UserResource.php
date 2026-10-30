@@ -14,6 +14,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\HtmlString;
 
 class UserResource extends Resource
 {
@@ -38,10 +39,16 @@ class UserResource extends Resource
                             ->email()
                             ->required()
                             ->maxLength(255),
+                        Forms\Components\Placeholder::make('password_notice')
+                            ->label('Password')
+                            ->content('A secure password will be generated and emailed to the user.')
+                            ->visibleOn('create')
+                            ->columnSpanFull(),
                         Forms\Components\Select::make('role')
                             ->options([
                                 'admin' => 'Admin',
                                 'author' => 'Author',
+                                'reviewer' => 'Reviewer',
                             ])
                             ->required(),
                         Forms\Components\Select::make('status')
@@ -56,6 +63,18 @@ class UserResource extends Resource
                             ->default(false),
                     ])
                     ->columns(2),
+                Section::make('Sent email history')
+                    ->schema([
+                        Forms\Components\Placeholder::make('sent_email_history')
+                            ->hiddenLabel()
+                            ->content(fn (?User $record): HtmlString => new HtmlString(
+                                view('filament.resources.users.email-history', [
+                                    'messages' => $record?->sentMessages ?? collect(),
+                                ])->render(),
+                            ))
+                            ->columnSpanFull(),
+                    ])
+                    ->visibleOn('edit'),
             ]);
     }
 
@@ -71,7 +90,11 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('role')
                     ->badge()
-                    ->color(fn (string $state): string => $state === 'admin' ? 'primary' : 'gray')
+                    ->color(fn (string $state): string => match ($state) {
+                        'admin' => 'primary',
+                        'reviewer' => 'warning',
+                        default => 'gray',
+                    })
                     ->formatStateUsing(fn (string $state): string => ucfirst($state)),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
@@ -92,9 +115,11 @@ class UserResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('role')
+                    ->label('Filter by role')
                     ->options([
                         'admin' => 'Admin',
                         'author' => 'Author',
+                        'reviewer' => 'Reviewer',
                     ]),
                 Tables\Filters\SelectFilter::make('status')
                     ->options([

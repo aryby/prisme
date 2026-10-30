@@ -2,7 +2,7 @@
     <div class="span12">
         <div class="titleborder">
             <div>
-                <p class="alert-info">Call for papers - Conference Tracks</p>
+                <p class="alert-info">Call for papers - Symposium Tracks</p>
             </div>
         </div>
     </div>

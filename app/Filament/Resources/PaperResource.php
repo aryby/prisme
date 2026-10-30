@@ -6,6 +6,8 @@ use App\Filament\Resources\PaperResource\Pages\CreatePaper;
 use App\Filament\Resources\PaperResource\Pages\EditPaper;
 use App\Filament\Resources\PaperResource\Pages\ListPapers;
 use App\Models\Paper;
+use App\Models\User;
+use Filament\Actions\Action;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms;
@@ -22,7 +24,7 @@ class PaperResource extends Resource
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Conference Management';
+    protected static string|\UnitEnum|null $navigationGroup = 'Symposium Management';
 
     protected static ?int $navigationSort = 2;
 
@@ -62,9 +64,15 @@ class PaperResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('phone')
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('file_path')
-                            ->label('File path')
-                            ->maxLength(255),
+                        Forms\Components\FileUpload::make('paper_upload')
+                            ->label('Paper PDF')
+                            ->disk('local')
+                            ->directory('papers')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->maxSize(10240)
+                            ->required(fn (?Paper $record): bool => ! filled($record?->file_path))
+                            ->helperText('PDF only, maximum 10 MB.')
+                            ->columnSpanFull(),
                         Forms\Components\DateTimePicker::make('submitted_at'),
                     ])
                     ->columns(2),
@@ -77,6 +85,27 @@ class PaperResource extends Resource
                             ->rows(3)
                             ->required(),
                     ]),
+                Section::make('Reviewer assignments')
+                    ->schema([
+                        Forms\Components\Repeater::make('reviews')
+                            ->relationship()
+                            ->label('Assigned reviewers')
+                            ->schema([
+                                Forms\Components\Select::make('reviewer_id')
+                                    ->label('Reviewer')
+                                    ->options(fn (): array => User::query()
+                                        ->where('role', 'reviewer')
+                                        ->orderBy('name')
+                                        ->pluck('name', 'id')
+                                        ->all())
+                                    ->searchable()
+                                    ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                                    ->required(),
+                            ])
+                            ->addActionLabel('Assign reviewer')
+                            ->columns(1),
+                    ])
+                    ->visible(fn (): bool => auth()->user()?->isAdmin() ?? false),
             ]);
     }
 
@@ -131,7 +160,27 @@ class PaperResource extends Resource
             ])
             ->actions([
                 EditAction::make()
-                    ->visible(fn (Paper $record): bool => $record->author_id === auth()->id()),
+                    ->visible(fn (Paper $record): bool => auth()->user()?->isAdmin()
+                        || $record->author_id === auth()->id()),
+                Action::make('viewPdf')
+                    ->label('View PDF')
+                    ->icon('heroicon-o-document')
+                    ->url(fn (Paper $record): string => auth()->user()?->isAdmin()
+                        ? route('admin.papers.pdf', $record)
+                        : route('author.papers.pdf', $record))
+                    ->openUrlInNewTab()
+                    ->visible(fn (Paper $record): bool => filled($record->file_path)
+                        && (auth()->user()?->isAdmin()
+                            || (auth()->user()?->isAuthor() && $record->author_id === auth()->id()))),
+                Action::make('downloadPdf')
+                    ->label('Download PDF')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->url(fn (Paper $record): string => (auth()->user()?->isAdmin()
+                        ? route('admin.papers.pdf', $record)
+                        : route('author.papers.pdf', $record)).'?download=1')
+                    ->visible(fn (Paper $record): bool => filled($record->file_path)
+                        && (auth()->user()?->isAdmin()
+                            || (auth()->user()?->isAuthor() && $record->author_id === auth()->id()))),
             ])
             ->bulkActions([
                 DeleteBulkAction::make()

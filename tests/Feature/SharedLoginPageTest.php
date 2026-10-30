@@ -49,4 +49,20 @@ class SharedLoginPageTest extends TestCase
 
         $response->assertRedirect('/author/dashboard');
     }
+
+    public function test_reviewer_user_is_redirected_to_reviewer_dashboard_after_login(): void
+    {
+        $user = User::factory()->create([
+            'email' => 'reviewer-login@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'reviewer',
+        ]);
+
+        $response = $this->from('/login')->post('/login', [
+            'email' => $user->email,
+            'password' => 'password123',
+        ]);
+
+        $response->assertRedirect('/reviewer/dashboard');
+    }
 }

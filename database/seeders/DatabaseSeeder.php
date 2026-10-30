@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Paper;
-use App\Models\Registration;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $admin = User::factory()->create([
-            'name' => 'Conference Admin',
+            'name' => 'Symposium Admin',
             'email' => 'admin@siprisme.test',
             'role' => 'admin',
             'status' => 'active',
@@ -62,26 +61,6 @@ class DatabaseSeeder extends Seeder
                 'status' => $paperData['status'] === 'rejected' ? 'completed' : 'pending',
                 'score' => $paperData['status'] === 'accepted' ? 88 : 75,
                 'comments' => 'Strong contribution and promising outcomes.',
-            ]);
-        }
-
-        foreach ($authors as $author) {
-            Registration::create([
-                'user_id' => $author->id,
-                'registration_type' => 'academic',
-                'full_name' => $author->name,
-                'email' => $author->email,
-                'affiliation' => 'University of Applied Research',
-                'country' => 'Morocco',
-                'phone' => '+212600000001',
-                'dietary_requirements' => 'None',
-                'special_requests' => 'Early access to materials',
-                'registration_fee' => 120.00,
-                'currency' => 'USD',
-                'payment_status' => $author->id % 2 === 0 ? 'verified' : 'pending',
-                'payment_method' => 'bank_transfer',
-                'transaction_id' => 'TRX-' . $author->id,
-                'payment_notes' => 'Conference registration received.',
             ]);
         }
     }

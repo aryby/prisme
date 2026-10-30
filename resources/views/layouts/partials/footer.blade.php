@@ -19,7 +19,6 @@
                 <hr>
                 <div id="quotes">
                     <p><a href="{{ route('submission') }}">Paper Submission</a></p>
-                    <p><a href="{{ route('registration') }}">Registration</a></p>
                     <p><a href="{{ route('important-dates') }}">Important Dates</a></p>
                 </div>
             </div>
@@ -42,7 +41,7 @@
             <!-- left -->
             <div class="span4 smallspacetop">
                 <p class="smaller">
-                    <span class="copyright">© </span> Copyright 2026 PRISME 
+                    <span class="copyright">© </span> Copyright 2026SIPRISME 
                     All rights reserved.
                 </p>
             </div>
@@ -55,7 +54,6 @@
                         <li><a href="{{ route('call-for-papers') }}">CFP</a></li>
                         <li><a href="{{ route('important-dates') }}">DATES</a></li>
                         <li><a href="{{ route('submission') }}">SUBMISSION</a></li>
-                        <li><a href="{{ route('registration') }}">REGISTRATION</a></li>
                         <li><a href="{{ route('contact') }}">CONTACT</a></li>
                     </ul>
                 </div>

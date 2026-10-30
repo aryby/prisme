@@ -22,6 +22,7 @@ class Paper extends Model
         'country',
         'phone',
         'file_path',
+        'file_disk',
         'status',
         'submitted_at',
     ];

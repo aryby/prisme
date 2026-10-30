@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Publication - PRISME 2026')
+@section('title', 'Publication -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
@@ -49,15 +49,15 @@
         <div class="well">
             <h3>Publication Process</h3>
             <p>
-                Authors will be kept informed throughout the review and selection process. The conference will conduct a
+                Authors will be kept informed throughout the review and selection process. The Symposium will conduct a
                 plagiarism check for all manuscripts before publication.
             </p>
             <p>
-                If plagiarism is identified by the Scientific Committee, peer reviewers, or conference staff at any stage of
+                If plagiarism is identified by the Scientific Committee, peer reviewers, or Symposium staff at any stage of
                 the publication process, the author will be informed and required to revise the manuscript accordingly.
             </p>
             <p>
-                Submitted manuscripts must be original and relevant to one of the conference themes. The acceptance decision
+                Submitted manuscripts must be original and relevant to one of the Symposium themes. The acceptance decision
                 will be based on originality, technical depth, contribution to theory and practice, and overall presentation.
             </p>
         </div>

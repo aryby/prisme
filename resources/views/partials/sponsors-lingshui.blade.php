@@ -1,6 +1,6 @@
 <div class="row-fluid top25">
     <div class="alert-info">
-        <h4 class="alert-info mb-0 pb-0"><strong>| Conference Tracks</strong></h4>
+        <h4 class="alert-info mb-0 pb-0"><strong>| Symposium Tracks</strong></h4>
         <p class="text-muted mb-0 mt-0 pt-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topics include, but are not limited to the
             following areas:</p>
 

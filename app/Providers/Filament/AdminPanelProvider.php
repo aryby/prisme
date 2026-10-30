@@ -43,8 +43,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 NavigationGroup::make('Overview'),
-                NavigationGroup::make('Conference Management'),
+                NavigationGroup::make('Symposium Management'),
                 NavigationGroup::make('People'),
+                NavigationGroup::make('Reviews'),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
