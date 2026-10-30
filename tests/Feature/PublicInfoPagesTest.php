@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PublicInfoPagesTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_venue_page_is_public_and_linked_in_navigation(): void
     {
         $this->get(route('venue'))

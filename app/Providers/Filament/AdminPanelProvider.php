@@ -44,6 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 NavigationGroup::make('Overview'),
                 NavigationGroup::make('Symposium Management'),
+                NavigationGroup::make('Website Content'),
                 NavigationGroup::make('People'),
                 NavigationGroup::make('Reviews'),
             ])

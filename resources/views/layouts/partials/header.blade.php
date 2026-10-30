@@ -53,7 +53,7 @@
                             @auth
                                 {{-- Show dashboard link based on user role --}}
                                 @if (auth()->user()->isAdmin())
-                                    <li><a href="{{ route('admin.dashboard') }}">ADMIN DASHBOARD</a></li>
+                                    <li><a href="{{ route('filament.admin.pages.dashboard') }}">ADMIN DASHBOARD</a></li>
                                 @elseif(auth()->user()->isAuthor())
                                     <li><a href="{{ route('filament.author.pages.dashboard') }}">AUTHOR DASHBOARD</a></li>
                                 @endif

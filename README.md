@@ -21,6 +21,18 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Website content management
+
+Administrators can manage the homepage slider and partner logos from **Website Content** in the `/admin` panel. Both sections support image uploads, visibility controls, and display ordering; slides also support titles and captions, while partner logos can link to partner websites. Migrations create the existing slider and partner logos as editable entries.
+
+For uploaded images to be served from Laravel's public disk, create the public storage link once:
+
+```sh
+php artisan storage:link
+```
+
+The PHP runtime must also allow uploads larger than 10 MB for slider images. Set `upload_max_filesize` to at least `16M` and `post_max_size` to at least `20M`, then restart the PHP web server. Livewire's temporary upload limit is configured to 16 MB; the slider form accepts images up to 10 MB.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
