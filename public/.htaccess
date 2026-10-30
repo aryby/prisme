@@ -1,9 +1,16 @@
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On
+
+    # Serve Laravel's front controller for directory requests.
+    DirectoryIndex index.php
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
