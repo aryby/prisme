@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\EditProfile;
 use App\Filament\Resources\PaperResource;
 use App\Filament\Widgets\AuthorOverviewWidget;
 use App\Filament\Widgets\AuthorRecentPapersWidget;
@@ -29,6 +30,7 @@ class AuthorPanelProvider extends PanelProvider
             ->id('author')
             ->path('author/dashboard')
             ->login()
+            ->profile(EditProfile::class)
             ->brandName('Siprisme Author')
             ->colors([
                 'primary' => '#0f766e',
@@ -49,7 +51,6 @@ class AuthorPanelProvider extends PanelProvider
                 PaperResource::class,
             ])
             ->widgets([
-                AccountWidget::class,
                 AuthorOverviewWidget::class,
                 AuthorRecentPapersWidget::class,
             ])

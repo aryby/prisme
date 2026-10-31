@@ -95,12 +95,22 @@ class EditPaper extends EditRecord
                 ->visible(fn (): bool => filled($this->record->file_path)
                     && (auth()->user()?->isAdmin()
                         || (auth()->user()?->isAuthor() && $this->record->author_id === auth()->id()))),
-            DeleteAction::make(),
+            DeleteAction::make()
+                ->visible(fn (): bool => auth()->user()?->isAdmin() ?? false),
         ];
     }
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
+        if (auth()->user()?->isAuthor() && ! auth()->user()?->isAdmin()) {
+            return array_intersect_key($data, array_flip([
+                'title',
+                'affiliation',
+                'country',
+                'phone',
+            ]));
+        }
+
         if (filled($data['paper_upload'] ?? null)) {
             $data['file_path'] = $data['paper_upload'];
             $data['file_disk'] = 'local';

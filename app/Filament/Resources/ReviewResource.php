@@ -26,9 +26,12 @@ class ReviewResource extends Resource
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-check';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Reviews';
+    protected static string|\UnitEnum|null $navigationGroup = 'Under Review Papers';
 
     protected static ?int $navigationSort = 1;
+
+    // navigation title name = "Under Review Papers" 
+    protected static ?string $navigationLabel = 'Under Review Papers';
 
     public static function form(Schema $schema): Schema
     {

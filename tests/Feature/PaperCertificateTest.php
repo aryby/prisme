@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Filament\Resources\PaperResource\Pages\EditPaper;
+use App\Filament\Widgets\AuthorRecentPapersWidget;
 use App\Mail\PaperCertificate;
 use App\Models\Paper;
 use App\Models\User;
@@ -77,6 +78,15 @@ class PaperCertificateTest extends TestCase
             ->get(route('filament.author.resources.papers.index'))
             ->assertOk()
             ->assertSee('Download certificate');
+
+        Livewire::actingAs($author)
+            ->test(AuthorRecentPapersWidget::class)
+            ->assertTableActionVisible('downloadCertificate', $paper)
+            ->assertTableActionHasUrl(
+                'downloadCertificate',
+                route('author.papers.certificate', $paper),
+                $paper,
+            );
 
         $this->actingAs($author)
             ->get(route('author.papers.certificate', $paper))

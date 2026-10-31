@@ -75,9 +75,14 @@ class SubmissionController extends Controller
         ]);
 
         if ($user->wasRecentlyCreated) {
-            Mail::to($user->email)->send(new SubmissionConfirmation($user, $randomPassword));
             $user->sendEmailVerificationNotification();
         }
+
+        Mail::to($user->email)->send(new SubmissionConfirmation(
+            $user,
+            $paper,
+            $user->wasRecentlyCreated ? $randomPassword : null,
+        ));
 
         // Log in the user and redirect to the author dashboard
         Auth::login($user);

@@ -12,24 +12,35 @@ class AdminOverviewWidget extends BaseWidget
 {
     protected function getStats(): array
     {
-        $pendingReviews = Review::query()->where('status', 'pending')->count();
+        $pendingReviews = Paper::query()->where('status', 'pending')->count();
+        $rejectedReviews = Paper::query()->where('status', 'rejected')->count();
+        $underReviewReviews = Paper::query()->where('status', 'under_review')->count();
+
 
         return [
             Stat::make('Total Papers', (string) Paper::query()->count())
                 ->description('All submissions received')
                 ->color('primary'),
+                
 
-            Stat::make('Registered Users', (string) User::query()->count())
-                ->description('Accounts on the platform')
-                ->color('success'),
-
-            Stat::make('Pending Reviews', (string) $pendingReviews)
-                ->description('Reviews awaiting completion')
-                ->color('warning'),
 
             Stat::make('Accepted Papers', (string) Paper::query()->where('status', 'accepted')->count())
                 ->description('Approved submissions')
                 ->color('success'),
+
+            
+            Stat::make('Pending Papers', (string) $pendingReviews)
+                ->description('Papers awaiting review')
+                ->color('warning'),
+
+
+            Stat::make('Under Review Papers', (string) $underReviewReviews)
+                ->description('Papers currently under review')
+                ->color('warning'),
+
+            Stat::make('Rejected Papers', (string) $rejectedReviews)
+                ->description('Submissions that were rejected')
+                ->color('danger'),
         ];
     }
 }

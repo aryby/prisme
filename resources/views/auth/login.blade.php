@@ -16,6 +16,12 @@
                     </div>
                 @endif
 
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
@@ -31,6 +37,10 @@
 
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
+
+                <p class="text-center" style="margin-top: 15px; margin-bottom: 0;">
+                    <a href="{{ route('password.request') }}">Forgot your password?</a>
+                </p>
             </div>
         </div>
     </div>

@@ -30,6 +30,10 @@ class PaperResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
+        $disableForAuthorEdit = fn (?Paper $record): bool => $record !== null
+            && auth()->user()?->isAuthor()
+            && ! auth()->user()?->isAdmin();
+
         return $schema
             ->components([
                 Section::make('Submission')
@@ -37,13 +41,15 @@ class PaperResource extends Resource
                         Forms\Components\Select::make('author_id')
                             ->relationship('author', 'name')
                             ->searchable()
-                            ->required(),
+                            ->required()
+                            ->disabled($disableForAuthorEdit),
                         Forms\Components\TextInput::make('title')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('track')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->disabled($disableForAuthorEdit),
                         Forms\Components\Select::make('status')
                             ->options([
                                 'submitted' => 'Submitted',
@@ -51,13 +57,15 @@ class PaperResource extends Resource
                                 'accepted' => 'Accepted',
                                 'rejected' => 'Rejected',
                             ])
-                            ->required(),
+                            ->required()
+                            ->disabled($disableForAuthorEdit),
                         Forms\Components\Select::make('submission_option')
                             ->options([
                                 'full_submission' => 'Full submission',
                                 'abstract_submission' => 'Abstract submission',
                             ])
-                            ->required(),
+                            ->required()
+                            ->disabled($disableForAuthorEdit),
                         Forms\Components\TextInput::make('affiliation')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('country')
@@ -72,18 +80,22 @@ class PaperResource extends Resource
                             ->maxSize(10240)
                             ->required(fn (?Paper $record): bool => ! filled($record?->file_path))
                             ->helperText('PDF only, maximum 10 MB.')
+                            ->disabled($disableForAuthorEdit)
                             ->columnSpanFull(),
-                        Forms\Components\DateTimePicker::make('submitted_at'),
+                        Forms\Components\DateTimePicker::make('submitted_at')
+                            ->disabled($disableForAuthorEdit),
                     ])
                     ->columns(2),
                 Section::make('Abstract and keywords')
                     ->schema([
                         Forms\Components\Textarea::make('abstract')
                             ->rows(6)
-                            ->required(),
+                            ->required()
+                            ->disabled($disableForAuthorEdit),
                         Forms\Components\Textarea::make('keywords')
                             ->rows(3)
-                            ->required(),
+                            ->required()
+                            ->disabled($disableForAuthorEdit),
                     ]),
                 Section::make('Reviewer assignments')
                     ->schema([

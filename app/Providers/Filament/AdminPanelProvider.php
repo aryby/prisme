@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\EditProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -28,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile(EditProfile::class)
             ->brandName('Siprisme Admin')
             ->homeUrl('/')
             ->colors([
@@ -45,15 +47,14 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make('Overview'),
                 NavigationGroup::make('Symposium Management'),
                 NavigationGroup::make('Website Content'),
-                NavigationGroup::make('People'),
-                NavigationGroup::make('Reviews'),
+                NavigationGroup::make('User Management'),
+                NavigationGroup::make('Under Review Papers'),
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
+                // AccountWidget::class,
                 \App\Filament\Widgets\AdminOverviewWidget::class,
                 \App\Filament\Widgets\RecentPapersWidget::class,
-                \App\Filament\Widgets\RecentUsersWidget::class,
+                 \App\Filament\Widgets\RecentUsersWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

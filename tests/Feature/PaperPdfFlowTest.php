@@ -2,12 +2,14 @@
 
 namespace Tests\Feature;
 
-use App\Models\Paper;
-use App\Models\User;
 use App\Filament\Resources\PaperResource\Pages\CreatePaper;
 use App\Filament\Resources\PaperResource\Pages\EditPaper;
+use App\Mail\SubmissionConfirmation;
+use App\Models\Paper;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
@@ -47,8 +49,20 @@ class PaperPdfFlowTest extends TestCase
         $paper = Paper::query()->where('title', 'PDF submission')->firstOrFail();
         $this->assertSame('local', $paper->file_disk);
         Storage::disk('local')->assertExists($paper->file_path);
-
         $author = User::query()->where('email', 'pdf-author@example.com')->firstOrFail();
+        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($paper): bool {
+            $content = $mail->render();
+
+            return $mail->paper->is($paper)
+                && $mail->password !== null
+                && str_contains($content, 'PDF submission')
+                && str_contains($content, $mail->password)
+                && str_contains($content, 'Example University');
+        });
+
+        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($author): bool {
+            return $mail->password !== null && Hash::check($mail->password, $author->password);
+        });
 
         $this->actingAs($author)
             ->get(route('author.papers.pdf', $paper))
@@ -64,6 +78,48 @@ class PaperPdfFlowTest extends TestCase
         $this->actingAs($otherAuthor)
             ->get(route('author.papers.pdf', $paper))
             ->assertNotFound();
+    }
+
+    public function test_existing_author_receives_submission_details_without_password_reset(): void
+    {
+        Storage::fake('local');
+        Mail::fake();
+
+        $author = User::factory()->create([
+            'email' => 'returning-author@example.com',
+            'role' => 'author',
+        ]);
+        $originalPassword = $author->password;
+
+        $this->post(route('submission.store'), [
+            'submission_option' => 'abstract_submission',
+            'title' => 'Returning author submission',
+            'track' => 'Digital Transformation and Artificial Intelligence',
+            'abstract' => 'An abstract from a returning author.',
+            'keywords' => 'returning, author',
+            'name' => $author->name,
+            'email' => $author->email,
+            'affiliation' => 'Example Institute',
+            'country' => 'US',
+            'phone' => '',
+            'file' => UploadedFile::fake()->createWithContent(
+                'returning-submission.pdf',
+                "%PDF-1.4\n1 0 obj\n<<>>\nendobj\n",
+            ),
+            'originality' => '1',
+            'copyright' => '1',
+            'attendance' => '1',
+        ])->assertRedirect(route('filament.author.pages.dashboard'));
+
+        $this->assertSame($originalPassword, $author->fresh()->password);
+        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail): bool {
+            $content = $mail->render();
+
+            return $mail->password === null
+                && str_contains($content, 'Returning author submission')
+                && str_contains($content, 'existing account')
+                && ! str_contains($content, 'Temporary password');
+        });
     }
 
     public function test_admin_paper_form_uploads_pdf_to_private_storage(): void

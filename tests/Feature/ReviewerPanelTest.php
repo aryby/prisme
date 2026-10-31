@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Filament\Resources\ReviewResource\Pages\EditReview;
+use App\Filament\Widgets\ReviewerOverviewWidget;
 use App\Models\Paper;
 use App\Models\Review;
 use App\Models\User;
@@ -24,6 +25,44 @@ class ReviewerPanelTest extends TestCase
         $this->actingAs($reviewer)
             ->get('/reviewer/dashboard')
             ->assertOk();
+    }
+
+    public function test_reviewer_dashboard_shows_only_their_review_statistics(): void
+    {
+        $reviewer = User::factory()->create(['role' => 'reviewer']);
+        $otherReviewer = User::factory()->create(['role' => 'reviewer']);
+        $author = User::factory()->create(['role' => 'author']);
+
+        foreach (['pending', 'accepted', 'revision_required'] as $status) {
+            Review::create([
+                'paper_id' => $this->createPaper($author, "Paper for {$status}")->id,
+                'reviewer_id' => $reviewer->id,
+                'status' => $status,
+            ]);
+        }
+
+        Review::create([
+            'paper_id' => $this->createPaper($author, 'Other reviewer paper')->id,
+            'reviewer_id' => $otherReviewer->id,
+            'status' => 'pending',
+        ]);
+
+        $this->actingAs($reviewer)
+            ->get('/reviewer/dashboard')
+            ->assertOk();
+
+        Livewire::actingAs($reviewer)
+            ->test(ReviewerOverviewWidget::class)
+            ->assertSee('Assigned reviews')
+            ->assertSee('Pending reviews')
+            ->assertSee('Completed reviews')
+            ->assertSee('Recommend acceptance')
+            ->assertSee('Recommend rejection')
+            ->assertSee('Revision required')
+            ->assertSee('3')
+            ->assertSee('2')
+            ->assertSee('1')
+            ->assertSee('0');
     }
 
     public function test_reviewer_only_sees_and_can_open_assigned_reviews(): void

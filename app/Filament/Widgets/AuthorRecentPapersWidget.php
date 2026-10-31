@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Models\Paper;
 use Auth;
+use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
@@ -40,6 +41,14 @@ class AuthorRecentPapersWidget extends BaseWidget
                     ->label('Submitted')
                     ->dateTime()
                     ->sortable(),
+            ])
+            ->recordActions([
+                Action::make('downloadCertificate')
+                    ->label('Download certificate')
+                    ->icon('heroicon-o-academic-cap')
+                    ->url(fn (Paper $record): string => route('author.papers.certificate', $record))
+                    ->visible(fn (Paper $record): bool => filled($record->certificate_path)
+                        && $record->author_id === Auth::id()),
             ])
             ->paginated(false);
     }

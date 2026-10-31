@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Paper;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -14,7 +15,8 @@ class SubmissionConfirmation extends Mailable implements ShouldQueue
 
     public function __construct(
         public User $user,
-        public string $password,
+        public Paper $paper,
+        public ?string $password,
     ) {}
 
     public function build(): self
@@ -25,6 +27,7 @@ class SubmissionConfirmation extends Mailable implements ShouldQueue
             ->view('emails.submission-confirmation', [
                 'name' => $this->user->name,
                 'email' => $this->user->email,
+                'paper' => $this->paper,
                 'password' => $this->password,
             ]);
     }

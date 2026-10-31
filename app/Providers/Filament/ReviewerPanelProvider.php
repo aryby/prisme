@@ -2,7 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\EditProfile;
 use App\Filament\Resources\ReviewResource;
+use App\Filament\Widgets\ReviewerOverviewWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,6 +29,7 @@ class ReviewerPanelProvider extends PanelProvider
             ->id('reviewer')
             ->path('reviewer/dashboard')
             ->login()
+            ->profile(EditProfile::class)
             ->brandName('Siprisme Reviewer')
             ->colors([
                 'primary' => '#7c3aed',
@@ -47,7 +50,8 @@ class ReviewerPanelProvider extends PanelProvider
                 ReviewResource::class,
             ])
             ->widgets([
-                AccountWidget::class,
+                // AccountWidget::class,
+                ReviewerOverviewWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
