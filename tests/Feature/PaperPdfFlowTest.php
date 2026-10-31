@@ -50,7 +50,7 @@ class PaperPdfFlowTest extends TestCase
         $this->assertSame('local', $paper->file_disk);
         Storage::disk('local')->assertExists($paper->file_path);
         $author = User::query()->where('email', 'pdf-author@example.com')->firstOrFail();
-        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($paper): bool {
+        Mail::assertSent(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($paper): bool {
             $content = $mail->render();
 
             return $mail->paper->is($paper)
@@ -60,7 +60,7 @@ class PaperPdfFlowTest extends TestCase
                 && str_contains($content, 'Example University');
         });
 
-        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($author): bool {
+        Mail::assertSent(SubmissionConfirmation::class, function (SubmissionConfirmation $mail) use ($author): bool {
             return $mail->password !== null && Hash::check($mail->password, $author->password);
         });
 
@@ -112,7 +112,7 @@ class PaperPdfFlowTest extends TestCase
         ])->assertRedirect(route('filament.author.pages.dashboard'));
 
         $this->assertSame($originalPassword, $author->fresh()->password);
-        Mail::assertQueued(SubmissionConfirmation::class, function (SubmissionConfirmation $mail): bool {
+        Mail::assertSent(SubmissionConfirmation::class, function (SubmissionConfirmation $mail): bool {
             $content = $mail->render();
 
             return $mail->password === null

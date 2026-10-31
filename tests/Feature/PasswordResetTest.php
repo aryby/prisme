@@ -32,10 +32,13 @@ class PasswordResetTest extends TestCase
             ->assertSessionHas('status', 'If an account exists for that email, we have sent a password reset link.');
 
         $token = null;
-        Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use (&$token): bool {
+        Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use (&$token, $user): bool {
             $token = $notification->token;
 
-            return true;
+            return $notification->toMail($user)->actionUrl === route('password.reset', [
+                'token' => $notification->token,
+                'email' => $user->email,
+            ]);
         });
 
         $this->get(route('password.reset', ['token' => $token, 'email' => $user->email]))
@@ -57,5 +60,23 @@ class PasswordResetTest extends TestCase
         $this->post(route('password.email'), ['email' => 'unknown@example.com'])
             ->assertRedirect()
             ->assertSessionHas('status', 'If an account exists for that email, we have sent a password reset link.');
+    }
+
+    public function test_throttled_reset_link_request_does_not_claim_a_link_was_sent(): void
+    {
+        Notification::fake();
+
+        $user = User::factory()->create(['email' => 'author@example.com']);
+
+        $this->post(route('password.email'), ['email' => $user->email])
+            ->assertRedirect()
+            ->assertSessionHas('status', 'If an account exists for that email, we have sent a password reset link.');
+
+        $this->post(route('password.email'), ['email' => $user->email])
+            ->assertRedirect()
+            ->assertSessionHasErrors([
+                'email' => 'Please wait before requesting another password reset link.',
+            ])
+            ->assertSessionMissing('status');
     }
 }
