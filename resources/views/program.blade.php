@@ -27,7 +27,7 @@
                SIPRISME 2026 will feature keynote presentations, parallel sessions, workshops, and networking opportunities.
             </p>
             <p>
-                For program updates, please contact us at <strong>prisme26@prisme.org</strong>
+                For program updates, please contact us at <strong>siprisme26@siprisme.org</strong>
             </p>
         </div>
     </div>

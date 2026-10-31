@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title', 'Committee -SIPRISME 2026')
-@section('description', 'Meet the distinguished committee members ofSIPRISME 2026, including the honorary committee, steering committee, scientific committee, and symposium secretariat.')
+@section('description', 'Meet the distinguished committee members of SIPRISME 2026, including the honorary committee, steering committee, scientific committee, and symposium secretariat.')
 
 @section('content')
     <div class="row-fluid">
         <div class="alert-info">
-            <h4 class="alert-info mb-0 pb-0"><strong>| Honorary Committee</strong></h4>
+            <h4 class="alert-info mb-0 pb-0"><strong> Honorary Committee</strong></h4>
         </div>
 
         <div class="row-fluid">
@@ -82,11 +82,6 @@
             </div>
         </div>
 
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="alert-info"><strong>Venue:</strong> Higher School of Technology of Casablanca (ESTC), Hassan II University of Casablanca, Morocco.</div>
-            </div>
-        </div>
 
         <div class="row-fluid">
             <div class="span12">

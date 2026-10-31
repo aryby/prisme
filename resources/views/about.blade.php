@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'AboutSIPRISME 2026 - The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (PRISME)')
-@section('description', 'Learn aboutSIPRISME 2026, our mission, vision, and the exciting program we have planned for this premier international Symposium on digital economy and data innovation.')
+@section('title', 'About SIPRISME 2026 - The Multidisciplinary Research Laboratory in Social Engineering and Business
+ Management (SIPRISME)')
+@section('description', 'Learn about SIPRISME 2026, our mission, vision, and the exciting program we have planned for this premier international Symposium on digital economy and data innovation.')
 
 @section('content')
 <!-- Page Header -->
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>AboutSIPRISME 2026</div>
+            <div>About SIPRISME 2026</div>
         </div>
         <div class="text-center">
             <p class="lead">
-                Discover the vision, mission, and exciting program that makesSIPRISME 2026 a premier destination for digital economy and data innovation research.
+                Discover the vision, mission, and exciting program that makes SIPRISME 2026 a premier destination for digital economy and data innovation research.
             </p>
         </div>
     </div>
@@ -49,7 +49,7 @@
             <div>Symposium Highlights</div>
         </div>
         <p class="text-center lead">
-            What makesSIPRISME 2026 a must-attend event for digital economy professionals and researchers
+            What makes SIPRISME 2026 a must-attend event for digital economy professionals and researchers
         </p>
     </div>
 </div>
@@ -157,7 +157,7 @@
 <div class="row-fluid">
     <div class="span12">
         <div class="alert alert-info text-center">
-            <h2>Join Us atSIPRISME 2026</h2>
+            <h2>Join Us at SIPRISME 2026</h2>
             <p class="lead">
                 Be part of the conversation that will shape the future of digital economy and data innovation. Register now and secure your spot at this premier international Symposium.
             </p>

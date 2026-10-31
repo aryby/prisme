@@ -13,7 +13,7 @@
                     <p><br></p>
                     <div class="infophone">
                         <a href="#">The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (PRISME)</a>
+ Management (SIPRISME)</a>
                     </div>
                     <div class="infoaddress">
                         <p>17-18 December 2026 // Casablanca, Morocco</p>
@@ -27,7 +27,7 @@
                 <div class="row-nav navbar">
                     <div class="navbar-inner">
                         <ul id="nav" class="nav">
-                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('home') }}">HOME</a></li>
 
                             <li><a href="{{ route('committee') }}">COMMITTEE</a></li>
 

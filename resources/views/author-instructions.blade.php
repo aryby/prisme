@@ -2,7 +2,7 @@
 
 @section('title', 'Author Instructions -SIPRISME 2026')
 @section('description',
-    'Detailed instructions for authors submitting papers toSIPRISME 2026, including preparation, formatting, peer review, and submission requirements.')
+    'Detailed instructions for authors submitting papers to SIPRISME 2026, including preparation, formatting, peer review, and submission requirements.')
 
 @section('content')
     <div class="row-fluid">
@@ -22,7 +22,7 @@
     <div class="panel1">
         <div class="span11">
             <p>
-                All materials submitted to theSIPRISME'26 Symposium must be original, unpublished research that is not
+                All materials submitted to the SIPRISME'26 Symposium must be original, unpublished research that is not
                 currently under review for any other Symposium or journal. Papers that do not comply with these guidelines
                 may be rejected without review. Submissions received after the deadline, exceeding the length limit, or not
                 appropriately structured may also be declined.
@@ -36,7 +36,7 @@
             </p>
             <p>
                 <strong>
-                    TheSIPRISME templates for preparing full papers and abstracts can be downloaded here:
+                    The SIPRISME templates for preparing full papers and abstracts can be downloaded here:
                     <a href="{{ asset('downloads/full_prisme_template.docx') }}">Full paper template</a>
                     /
                     <a href="{{ asset('downloads/abstract_prisme_template.docx') }}">Abstract template</a>

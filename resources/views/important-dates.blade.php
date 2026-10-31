@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Important Dates -SIPRISME 2026')
-@section('description', 'Important dates and deadlines for theSIPRISME 2026 symposium. Submission timeline, acceptance notification, and Symposium schedule.')
+@section('description', 'Important dates and deadlines for the SIPRISME 2026 symposium. Submission timeline, acceptance notification, and Symposium schedule.')
 
 @section('content')
 <div class="row-fluid">

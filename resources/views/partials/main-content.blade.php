@@ -11,7 +11,7 @@
                 <p align="justify">
                     <span class="text-info">
 The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (PRISME) is organizing the 4th International SIPRISME Symposium 2026,
+ Management (SIPRISME) is organizing the 4th International SIPRISME Symposium 2026,
   on December 17–18, 2026, at ESTC Casablanca, Morocco.</span>
 
 
@@ -29,7 +29,7 @@ The Multidisciplinary Research Laboratory in Social Engineering and Business
 
 
 
-                <p class="alert-info">| :Rationale
+                <p class="alert-info"> Symposium Context and Objectives
                 </p>
                 <p align="justify">
                     
@@ -55,6 +55,11 @@ How can we rethink and steer transitions to build resilient organizations and te
         <div class="row-fluid top25">
             <div class="panel1">
                 <div class="span11">
+                    <h4 class="top0"><strong>Thematic Areas</strong></h4>
+<p class="text-muted">
+    Research papers may address any of the following themes.
+    This list is not exhaustive.
+</p>
                     @include('partials.thematic-areas')
                 </div>
                 <div class="clearfix"></div>

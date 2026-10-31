@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'AboutSIPRISME -SIPRISME 2026')
+@section('title', 'About SIPRISME -SIPRISME 2026')
 
 @section('content')
 <div class="row-fluid">
     <div class="span12">
         <div class="titleborder">
-            <div>AboutSIPRISME</div>
+            <div>About SIPRISME</div>
         </div>
         <div class="text-center">
             <p class="lead">
                 Learn more about the The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (PRISME)
+ Management (SIPRISME)
             </p>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <h3>Symposium Overview</h3>
             <p>
                SIPRISME 2026 is the second The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (PRISME). 
+ Management (SIPRISME). 
                 This Symposium aims to serve as a premier interdisciplinary platform for researchers, academics, practitioners, 
                 and policymakers to exchange knowledge and discuss emerging trends, challenges, and breakthroughs shaping the digital economy.
             </p>

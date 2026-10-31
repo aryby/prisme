@@ -11,7 +11,7 @@
                 <hr>
                 <div>
                     <p>General inquiries and support</p>
-                    <p>Email: <a href="mailto:prisme26@prisme.org">prisme26@prisme.org</a></p>
+                    <p>Email: <a href="mailto:siprisme26@siprisme.org">siprisme26@siprisme.org</a></p>
                 </div>
             </div>
             <div class="span4">

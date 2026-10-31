@@ -1,6 +1,6 @@
 <p>Dear {{ $user->name }},</p>
 
-<p>Welcome toSIPRISME 2026.</p>
+<p>Welcome to SIPRISME 2026.</p>
 
 <p>To complete your registration and activate your account, please verify your email address by clicking the button below:</p>
 
@@ -14,4 +14,4 @@
 <p>{{ $verificationUrl }}</p>
 
 <p>Best regards,<br>
-PRISME 2026 Team</p>
+SIPRISME 2026 Team</p>

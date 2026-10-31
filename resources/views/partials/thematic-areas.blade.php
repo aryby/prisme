@@ -1,8 +1,4 @@
-<h4 class="top0"><strong>Thematic Areas</strong></h4>
-<p class="text-muted">
-    Research papers may address any of the following themes.
-    This list is not exhaustive.
-</p>
+
 
 <div class="row" style="margin-left: 5px;">
     <h3>1. Transitions and Organizational Resilience</h3>

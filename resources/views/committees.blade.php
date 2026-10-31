@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Meet the distinguished committee members ofSIPRISME 2026
+                Meet the distinguished committee members of SIPRISME 2026
             </p>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <a href="{{ route('committee') }}">Committee page</a>.
             </p>
             <p>
-                For committee-related inquiries, please contact us at <strong>prisme26@prisme.org</strong>
+                For committee-related inquiries, please contact us at <strong>siprisme26@siprisme.org</strong>
             </p>
         </div>
     </div>

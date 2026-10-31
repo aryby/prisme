@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Various calls and opportunities forSIPRISME 2026
+                Various calls and opportunities for SIPRISME 2026
             </p>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <h3>Call for Workshops</h3>
             <p>
                 We welcome proposals for workshops that complement the main Symposium program. 
-                For workshop proposals, please contact us at <strong>prisme26@prisme.org</strong>
+                For workshop proposals, please contact us at <strong>siprisme26@siprisme.org</strong>
             </p>
         </div>
     </div>
@@ -45,8 +45,8 @@
         <div class="well">
             <h3>Call for Sponsorship</h3>
             <p>
-                We offer various sponsorship opportunities for organizations interested in supportingSIPRISME 2026. 
-                For sponsorship information, please contact us at <strong>prisme26@prisme.org</strong>
+                We offer various sponsorship opportunities for organizations interested in supporting SIPRISME 2026. 
+                For sponsorship information, please contact us at <strong>siprisme26@siprisme.org</strong>
             </p>
         </div>
     </div>

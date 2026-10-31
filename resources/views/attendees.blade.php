@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Important information forSIPRISME 2026 attendees
+                Important information for SIPRISME 2026 attendees
             </p>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="well">
             <h3>Travel Information</h3>
             <p>Detailed travel and accommodation information will be provided closer to the Symposium date.</p>
-            <p>For specific inquiries, please contact us at <strong>prisme26@prisme.org</strong></p>
+            <p>For specific inquiries, please contact us at <strong>siprisme26@siprisme.org</strong></p>
         </div>
     </div>
 </div>

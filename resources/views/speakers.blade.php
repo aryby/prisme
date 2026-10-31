@@ -27,7 +27,7 @@
                 We are looking for distinguished speakers to share their expertise in digital economy, smart business, and data innovation.
             </p>
             <p>
-                If you are interested in speaking atSIPRISME 2026, please contact us at <strong>prisme26@prisme.org</strong>
+                If you are interested in speaking at SIPRISME 2026, please contact us at <strong>siprisme26@siprisme.org</strong>
             </p>
         </div>
     </div>

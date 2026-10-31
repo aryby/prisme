@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Stay updated with the latest news and important dates forSIPRISME 2026
+                Stay updated with the latest news and important dates for SIPRISME 2026
             </p>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="well">
             <h3>Latest News</h3>
             <p>Symposium news and updates will be posted here as they become available.</p>
-            <p>For the latest information, please visit our website regularly or contact us at <strong>prisme26@prisme.org</strong></p>
+            <p>For the latest information, please visit our website regularly or contact us at <strong>siprisme26@siprisme.org</strong></p>
         </div>
     </div>
 </div>

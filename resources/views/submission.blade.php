@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Paper Submission -SIPRISME 2026')
-@section('description', 'Submission guidelines forSIPRISME 2026. Learn about abstract and full paper requirements, review process, and submission details.')
+@section('description', 'Submission guidelines for SIPRISME 2026. Learn about abstract and full paper requirements, review process, and submission details.')
 
 @section('content')
     <div class="row-fluid">
@@ -208,7 +208,7 @@
                         <div class="controls">
                             <label class="checkbox">
                                 <input type="checkbox" name="copyright" required>
-                                I agree to transfer copyright toSIPRISME 2026 if the paper is accepted for publication. *
+                                I agree to transfer copyright to SIPRISME 2026 if the paper is accepted for publication. *
                             </label>
                         </div>
                     </div>
