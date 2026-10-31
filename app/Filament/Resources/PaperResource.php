@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class PaperResource extends Resource
 {
@@ -132,6 +133,15 @@ class PaperResource extends Resource
         return $query;
     }
 
+    public static function canEdit(Model $record): bool
+    {
+        if (auth()->user()?->isReviewer()) {
+            return false;
+        }
+
+        return parent::canEdit($record);
+    }
+
     public static function table(Table $table): Table
     {
         return $table
@@ -172,8 +182,9 @@ class PaperResource extends Resource
             ])
             ->actions([
                 EditAction::make()
-                    ->visible(fn (Paper $record): bool => auth()->user()?->isAdmin()
-                        || $record->author_id === auth()->id()),
+                    ->visible(fn (Paper $record): bool => ! auth()->user()?->isReviewer()
+                        && (auth()->user()?->isAdmin()
+                            || $record->author_id === auth()->id())),
                 Action::make('viewPdf')
                     ->label('View PDF')
                     ->icon('heroicon-o-document')

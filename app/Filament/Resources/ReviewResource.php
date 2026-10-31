@@ -30,7 +30,7 @@ class ReviewResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    // navigation title name = "Under Review Papers" 
+    // navigation title name = "Under Review Papers"
     protected static ?string $navigationLabel = 'Under Review Papers';
 
     public static function form(Schema $schema): Schema
@@ -129,6 +129,15 @@ class ReviewResource extends Resource
         return auth()->user()?->isAdmin() ?? false;
     }
 
+    public static function canEdit(Model $record): bool
+    {
+        if (auth()->user()?->isReviewer()) {
+            return $record instanceof Review && $record->status === 'pending';
+        }
+
+        return parent::canEdit($record);
+    }
+
     public static function table(Table $table): Table
     {
         return $table
@@ -180,7 +189,9 @@ class ReviewResource extends Resource
             ->actions([
                 EditAction::make()
                     ->label('Write review')
-                    ->icon('heroicon-o-pencil-square'),
+                    ->icon('heroicon-o-pencil-square')
+                    ->visible(fn (Review $record): bool => ! auth()->user()?->isReviewer()
+                        || $record->status === 'pending'),
                 Action::make('viewPaper')
                     ->label('View paper PDF')
                     ->icon('heroicon-o-document')

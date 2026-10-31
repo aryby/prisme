@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Filament\Resources\PaperResource;
 use App\Filament\Resources\ReviewResource\Pages\EditReview;
 use App\Filament\Widgets\ReviewerOverviewWidget;
 use App\Models\Paper;
@@ -148,6 +149,27 @@ class ReviewerPanelTest extends TestCase
             'commenter_id' => $reviewer->id,
             'body' => 'The methodology is clearly explained.',
         ]);
+
+        $this->get('/reviewer/dashboard/reviews')
+            ->assertOk()
+            ->assertDontSee('Write review');
+
+        $this->get("/reviewer/dashboard/reviews/{$review->id}/edit")
+            ->assertForbidden();
+    }
+
+    public function test_reviewer_cannot_edit_a_paper(): void
+    {
+        $reviewer = User::factory()->create(['role' => 'reviewer']);
+        $author = User::factory()->create(['role' => 'author']);
+        $paper = $this->createPaper($author, 'Paper reviewers cannot edit');
+
+        $this->actingAs($reviewer);
+
+        $this->assertFalse(PaperResource::canEdit($paper));
+
+        $this->get("/author/dashboard/papers/{$paper->id}/edit")
+            ->assertForbidden();
     }
 
     public function test_reviewer_can_view_only_an_assigned_paper(): void

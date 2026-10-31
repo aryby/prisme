@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ReviewResource\Pages;
 use App\Filament\Resources\ReviewResource;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class EditReview extends EditRecord
 {
@@ -27,5 +28,18 @@ class EditReview extends EditRecord
                 ->visible(fn (): bool => auth()->user()?->isReviewer()
                     && filled($this->record->paper->file_path)),
         ];
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if (auth()->user()?->isReviewer()) {
+            $review = $this->record->fresh();
+
+            if (! $review || $review->reviewer_id !== auth()->id() || $review->status !== 'pending') {
+                throw new AuthorizationException;
+            }
+        }
+
+        return $data;
     }
 }
