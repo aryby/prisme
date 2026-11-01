@@ -37,8 +37,10 @@
                 its topic, quality, and contribution to the field.
             </p>
             <ul>
-                <li>International Journal of Intelligent Management and Data Systems</li>
-                <li>The International Journal of Economic and Management Decisions</li>
+                <li>La Revue Marocaine de Contrôle de Gestion (RMCG)</li>
+                <li>Management & Sustainability: An Arab Review (Emerald Publishing)</li>
+                <li>Revue Française de Gestion Industrielle (RFGI)</li>
+                <li>Revue Management & Innovation (RM&I)</li>
             </ul>
         </div>
     </div>

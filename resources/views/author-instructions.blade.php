@@ -73,8 +73,10 @@
             <p><strong>Full paper submission:</strong> Authors seeking publication opportunities must submit a full paper by 9 December 2026. All submissions will undergo a rigorous peer-review process.</p>
             <p><strong>Publication:</strong> Accepted papers will have the opportunity to be published in one of the following outlets:</p>
             <ul>
-                <li>International Journal of Intelligent Management and Data Systems</li>
-                <li>The International Journal of Economic and Management Decisions</li>
+                <li>La Revue Marocaine de Contrôle de Gestion (RMCG)</li>
+                <li>Management & Sustainability: An Arab Review (Emerald Publishing)</li>
+                <li>Revue Française de Gestion Industrielle (RFGI)</li>
+                <li>Revue Management & Innovation (RM&I)</li>
             </ul>
             <p>
                 The Scientific Committee will recommend the most suitable publication outlet for each accepted paper based on its topic and quality. Authors will be kept informed throughout the review and selection process.

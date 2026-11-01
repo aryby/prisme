@@ -51,10 +51,10 @@
         <div class="row-fluid">
             <div class="span12">
                 <ul class="unstyled">
-                    <li><strong>Prof. BENLAKOUIRI</strong> Abderrahim<br>a.benlakouiri@siprisme.org</li>
+                    <li><strong>Prof. BENLAKOUIRI</strong> Abderrahim<br><a href="mailto:a.benlakouiri@siprisme.org">a.benlakouiri@siprisme.org</a></li>
                     <li><strong>Prof. AMIFI</strong> Hamid<br><a href="mailto:h.amifi@siprisme.org">h.amifi@siprisme.org</a> / 06.68.11.51.02</li>
-                    <li><strong>Prof. JOUALI</strong> Jamila<br><a href="mailto:j.jouali@siprisme.org">j.jouali@siprisme.org</a> / 0698110 630</li>
-                    <li><strong>Prof. EL FIGHA</strong> Abdennassar<br><a href="mailto:elfigha@siprisme.org">elfigha@siprisme.org</a> / 06 61 57 25 81</li>
+                    <li><strong>Prof. JOUALI</strong> Jamila<br><a href="mailto:j.jouali@siprisme.org">j.jouali@siprisme.org</a> / 06.98.11.06.30</li>
+                    <li><strong>Prof. EL FIGHA</strong> Abdennassar<br><a href="mailto:a.elfigha@siprisme.org">a.elfigha@siprisme.org</a> / 06.61.57.25.81</li>
                 </ul>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <li><strong>Prof. EL FIGHA</strong> Abdennassar</li>
                     <li><strong>Prof. JOUALI</strong> Jamila</li>
                     <li><strong>Prof. NOURI</strong> Hicham</li>
-                    <li><strong>EL JAI</strong> Mohamed <strong>PhD Student</strong></li>
+                    <li><strong>EL JAI</strong> Mohamed <strong>(PhD Student)</strong></li>
                     <li><strong>El MRINIOUI</strong> Youssra <strong>(PhD Student)</strong></li>
                     <li><strong>ESSATE</strong> Sara <strong>(PhD Student)</strong></li>
                     <li><strong>ESSAOULA</strong> Omaima <strong>(PhD Student)</strong></li>
