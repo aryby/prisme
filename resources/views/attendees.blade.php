@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Important information for SIPRISME 2026 attendees
+                {{ \App\Models\PageContent::text('attendees.intro') }}
             </p>
         </div>
     </div>
@@ -21,9 +21,9 @@
         <div class="well">
             <h3>Symposium Information</h3>
             <ul>
-                <li><strong>Venue:</strong> ESTC Casablanca, Morocco</li>
-                <li><strong>Dates:</strong> 17-18 December 2026</li>
-                <li><strong>Format:</strong> In-person symposium</li>
+                <li><strong>Venue:</strong> {{ \App\Models\PageContent::text('attendees.venue') }}</li>
+                <li><strong>Dates:</strong> {{ \App\Models\PageContent::text('attendees.dates') }}</li>
+                <li><strong>Format:</strong> {{ \App\Models\PageContent::text('attendees.format') }}</li>
             </ul>
         </div>
     </div>
@@ -33,8 +33,8 @@
     <div class="span12">
         <div class="well">
             <h3>Travel Information</h3>
-            <p>Detailed travel and accommodation information will be provided closer to the Symposium date.</p>
-            <p>For specific inquiries, please contact us at <strong>siprisme26@siprisme.org</strong></p>
+            <p>{{ \App\Models\PageContent::text('attendees.travel') }}</p>
+            <p>For specific inquiries, please contact us at <strong>{{ \App\Models\PageContent::text('attendees.contact') }}</strong></p>
         </div>
     </div>
 </div>

@@ -47,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make('Overview'),
                 NavigationGroup::make('Symposium Management'),
                 NavigationGroup::make('Website Content'),
+                NavigationGroup::make('System Management'),
                 NavigationGroup::make('User Management'),
                 NavigationGroup::make('Under Review Papers'),
             ])

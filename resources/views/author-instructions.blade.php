@@ -22,17 +22,13 @@
     <div class="panel1">
         <div class="span11">
             <p>
-                All materials submitted to the SIPRISME'26 Symposium must be original, unpublished research that is not
-                currently under review for any other Symposium or journal. Papers that do not comply with these guidelines
-                may be rejected without review. Submissions received after the deadline, exceeding the length limit, or not
-                appropriately structured may also be declined.
+                {{ \App\Models\PageContent::text('author-instructions.preparation') }}
             </p>
             <p>
-                <span class="alert-dark bold">Full papers</span> must be written in English and submitted in Word format.
-                Each manuscript should be between 10 and 20 pages in length.
+                <span class="alert-dark bold">Full papers</span> {{ \App\Models\PageContent::text('author-instructions.full-papers') }}
             </p>
             <p>
-                <span class="alert-dark">Abstracts</span> must be submitted in English or French in Word format.
+                <span class="alert-dark">Abstracts</span> {{ \App\Models\PageContent::text('author-instructions.abstracts') }}
             </p>
             <p>
                 <strong>
@@ -51,13 +47,11 @@
             <h4 class="alert-info mb-0 pb-0"><strong>| Peer Review Process</strong></h4>
         </div>
         <ul class="uli">
-            <li>The Symposium will check plagiarism for all articles before publication.</li>
-            <li>If plagiarism is detected by the Scientific Committee, peer reviewers, or staff members at any stage of the publication process, the author will be informed and required to revise the manuscript.</li>
-            <li>If the submitted manuscript is more than 20% plagiarized, the article will be rejected and the author will be notified.</li>
-            <li>Paper content must be original, unpublished, and relevant to one of the Symposium topics.</li>
-            <li>Acceptance decisions will take into account novelty, technical depth, elegance, and practical and theoretical impact.</li>
-            <li>Each paper will be reviewed by two Scientific Committee members.</li>
-            <li>Changes cannot be made during the review process. If accepted, minor revisions may be made prior to final submission.</li>
+            @foreach (preg_split('/\r\n|\r|\n/', \App\Models\PageContent::text('author-instructions.review')) as $reviewStep)
+                @if (trim($reviewStep) !== '')
+                    <li>{{ $reviewStep }}</li>
+                @endif
+            @endforeach
         </ul>
     </div>
 
@@ -69,14 +63,15 @@
 
     <div class="panel1">
         <div class="span11">
-            <p><strong>Abstract submission:</strong> Authors who wish to present their research at the Symposium without pursuing publication are encouraged to submit an abstract by 15 November 2026.</p>
-            <p><strong>Full paper submission:</strong> Authors seeking publication opportunities must submit a full paper by 9 December 2026. All submissions will undergo a rigorous peer-review process.</p>
+            <p><strong>Abstract submission:</strong> Authors who wish to present their research at the Symposium without pursuing publication are encouraged to submit an abstract by {{ \App\Models\PageContent::text('author-instructions.abstract-deadline') }}.</p>
+            <p><strong>Full paper submission:</strong> Authors seeking publication opportunities must submit a full paper by {{ \App\Models\PageContent::text('author-instructions.paper-deadline') }}. All submissions will undergo a rigorous peer-review process.</p>
             <p><strong>Publication:</strong> Accepted papers will have the opportunity to be published in one of the following outlets:</p>
             <ul>
-                <li>La Revue Marocaine de Contrôle de Gestion (RMCG)</li>
-                <li>Management & Sustainability: An Arab Review (Emerald Publishing)</li>
-                <li>Revue Française de Gestion Industrielle (RFGI)</li>
-                <li>Revue Management & Innovation (RM&I)</li>
+                @foreach (preg_split('/\r\n|\r|\n/', \App\Models\PageContent::text('author-instructions.publication-venues')) as $venue)
+                    @if (trim($venue) !== '')
+                        <li>{{ $venue }}</li>
+                    @endif
+                @endforeach
             </ul>
             <p>
                 The Scientific Committee will recommend the most suitable publication outlet for each accepted paper based on its topic and quality. Authors will be kept informed throughout the review and selection process.

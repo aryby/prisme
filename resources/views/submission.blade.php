@@ -17,27 +17,29 @@
             <div class="well">
                 <h3>Submission Modalities</h3>
                 <p>
-                    Submission takes place in two stages: an abstract first, followed by the full paper after acceptance.
+                    {{ \App\Models\PageContent::text('submission.modalities') }}
                 </p>
 
                 <h4>Extended abstract</h4>
                 <ul>
-                    <li>500 to 800 words, in French, English, or Arabic</li>
-                    <li>Title, author name(s), affiliations, and email address</li>
-                    <li>Selected thematic axis</li>
-                    <li>Research problem, theoretical framework, methodology, and expected main results</li>
-                    <li>3 to 5 keywords</li>
+                    @foreach (preg_split('/\r\n|\r|\n/', \App\Models\PageContent::text('submission.extended-abstract')) as $requirement)
+                        @if (trim($requirement) !== '')
+                            <li>{{ $requirement }}</li>
+                        @endif
+                    @endforeach
                 </ul>
 
                 <h4>Full paper</h4>
                 <ul>
-                    <li>15 to 20 pages, including references and appendices</li>
-                    <li>Times New Roman 12 font, 1.5 line spacing</li>
-                    <li>Bibliographic references in APA style (7th edition)</li>
+                    @foreach (preg_split('/\r\n|\r|\n/', \App\Models\PageContent::text('submission.full-paper')) as $requirement)
+                        @if (trim($requirement) !== '')
+                            <li>{{ trim($requirement) }}</li>
+                        @endif
+                    @endforeach
                 </ul>
 
                 <p>
-                    Proposals are evaluated through a double-blind peer review process by the Scientific Committee. Upload your paper as a PDF using the form below.
+                    {{ \App\Models\PageContent::text('submission.review') }}
                 </p>
             </div>
         </div>

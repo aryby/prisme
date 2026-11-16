@@ -11,8 +11,8 @@
             </div>
             <div class="well">
                 <h2>Get in touch</h2>
-                <p>For questions about SIPRISME 2026, paper submissions, or participation, contact the organizing committee by email.</p>
-                <p><strong>Email:</strong> <a href="mailto:siprisme26@siprisme.org">siprisme26@siprisme.org</a></p>
+                <p>{{ \App\Models\PageContent::text('contact.intro') }}</p>
+                <p><strong>Email:</strong> <a href="mailto:{{ \App\Models\PageContent::text('contact.email') }}">{{ \App\Models\PageContent::text('contact.email') }}</a></p>
                 <p><strong>Symposium dates:</strong> 17–18 December 2026</p>
                 <p><strong>Venue:</strong> Casablanca, Morocco. See the <a href="{{ route('venue') }}">venue page</a> for details.</p>
             </div>

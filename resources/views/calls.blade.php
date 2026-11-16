@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Various calls and opportunities for SIPRISME 2026
+                {{ \App\Models\PageContent::text('calls.intro') }}
             </p>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="well">
             <h3>Call for Papers</h3>
             <p>
-                We invite original research papers in digital economy, smart business, and data innovation. 
+                {{ \App\Models\PageContent::text('calls.papers') }}
                 <a href="{{ route('call-for-papers') }}">View detailed call for papers</a>
             </p>
         </div>
@@ -33,8 +33,7 @@
         <div class="well">
             <h3>Call for Workshops</h3>
             <p>
-                We welcome proposals for workshops that complement the main Symposium program. 
-                For workshop proposals, please contact us at <strong>siprisme26@siprisme.org</strong>
+                {{ \App\Models\PageContent::text('calls.workshops') }}
             </p>
         </div>
     </div>
@@ -45,8 +44,7 @@
         <div class="well">
             <h3>Call for Sponsorship</h3>
             <p>
-                We offer various sponsorship opportunities for organizations interested in supporting SIPRISME 2026. 
-                For sponsorship information, please contact us at <strong>siprisme26@siprisme.org</strong>
+                {{ \App\Models\PageContent::text('calls.sponsorship') }}
             </p>
         </div>
     </div>

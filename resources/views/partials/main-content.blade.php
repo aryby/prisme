@@ -10,19 +10,17 @@
 
                 <p align="justify">
                     <span class="text-info">
-The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (SIPRISME) is organizing the 4th International SIPRISME Symposium 2026,
-  on December 17–18, 2026, at ESTC Casablanca, Morocco.</span>
+{{ \App\Models\PageContent::text('home.presentation') }}</span>
 
 
 
 
                 </p>
                 <p align="justify">
-                    Theme: “Rethinking and Steering Transitions: From Organizational and Territorial Resilience to New Value Models”
+                    {{ \App\Models\PageContent::text('home.theme') }}
 </p>
                 <p align="justify">
-                    The symposium is intended for academic researchers, PhD candidates, practitioners, public policymakers, and stakeholders from the socio-economic world. Presentations may be delivered in French, English, or Arabic.
+                    {{ \App\Models\PageContent::text('home.audience') }}
 
                 </p>
 
@@ -33,20 +31,9 @@ The Multidisciplinary Research Laboratory in Social Engineering and Business
                 </p>
                 <p align="justify">
                     
-Organizations and territories are undergoing simultaneous transitions: ecological, digital, social, energy-related, and geopolitical. These rapid and often unpredictable changes are challenging management, governance, and value-creation models inherited from the previous century.
+{!! nl2br(e(\App\Models\PageContent::text('home.context'))) !!}
 <br>
-
-In this context, resilience is no longer merely the ability to withstand shocks. It has become the capacity to anticipate, adapt, and transform. This applies to businesses, their teams, and their partners, as well as to territories, their institutions, and their ecosystems.
-<br>
-Steering these transitions requires new decision-making tools and approaches to performance measurement. Performance is no longer limited to financial results; it also encompasses social, environmental, and territorial dimensions. Management control, accounting, human resource management, and governance must therefore reinvent themselves.
-<br>
-These transformations are also giving rise to new value models, including the circular economy, the social and solidarity economy, frugal innovation, sustainable finance, digital platforms, and mission-driven companies.
-<br>
-In Morocco, these challenges are part of the New Development Model, advanced regionalization, and preparations for major international events. They encourage researchers and practitioners to bring together their perspectives and expertise.
-<br>
-The SIPRISME 2026 Symposium provides a multidisciplinary forum for debate around a central question:
-<br>
-How can we rethink and steer transitions to build resilient organizations and territories that create sustainable and shared value?</p>
+{{ \App\Models\PageContent::text('home.central-question') }}</p>
  <br>           </div>
         </div>
 
@@ -57,8 +44,7 @@ How can we rethink and steer transitions to build resilient organizations and te
                 <div class="span11">
                     <h4 class="top0"><strong>Thematic Areas</strong></h4>
 <p class="text-muted">
-    Research papers may address any of the following themes.
-    This list is not exhaustive.
+    {{ \App\Models\PageContent::text('home.thematic-intro') }}
 </p>
                     @include('partials.thematic-areas')
                 </div>
@@ -76,15 +62,15 @@ How can we rethink and steer transitions to build resilient organizations and te
             <p>
                 <strong>
                     <img src="{{ asset('img/logo/hot.gif') }}" width="20" height="20"> Abstract submission deadline: <br>
-                    <span class="STYLE3">15 November 2026</span><br><br>
+                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.abstract-deadline') }}</span><br><br>
                     Notification of acceptance: <br>
-                    <span class="STYLE3">19 November 2026</span><br><br>
+                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.acceptance') }}</span><br><br>
                     Full paper submission: <br>
-                    <span class="STYLE3">9 December 2026</span><br><br>
+                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.full-paper') }}</span><br><br>
                     Symposium dates: <br>
-                    <span class="STYLE3">17-18 December 2026</span><br><br>
+                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.symposium') }}</span><br><br>
                     Final versions for publication: <br>
-                    <span class="STYLE3">31 January 2027</span>
+                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.final-version') }}</span>
                 </strong>
             </p>
             <p>&nbsp;</p>

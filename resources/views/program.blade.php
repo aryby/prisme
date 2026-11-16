@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Detailed program schedule will be announced soon.
+                {{ \App\Models\PageContent::text('program.intro') }}
             </p>
             <p class="text-info">
                 <strong>Program information will be available closer to the Symposium date.</strong>
@@ -24,10 +24,10 @@
         <div class="well text-center">
             <h3>Symposium Schedule Overview</h3>
             <p>
-               SIPRISME 2026 will feature keynote presentations, parallel sessions, workshops, and networking opportunities.
+                {{ \App\Models\PageContent::text('program.schedule') }}
             </p>
             <p>
-                For program updates, please contact us at <strong>siprisme26@siprisme.org</strong>
+                For program updates, please contact us at <strong>{{ \App\Models\PageContent::text('program.contact') }}</strong>
             </p>
         </div>
     </div>

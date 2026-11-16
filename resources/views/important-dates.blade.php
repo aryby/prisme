@@ -11,7 +11,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                The schedule below is a proposed timeline, subject to adjustment by the organizing committee.
+                {{ \App\Models\PageContent::text('important-dates.intro') }}
             </p>
         </div>
     </div>
@@ -30,23 +30,23 @@
                 <tbody>
                     <tr>
                         <td>Abstract submission deadline</td>
-                        <td>15 November 2026</td>
+                        <td>{{ \App\Models\PageContent::text('important-dates.abstract-deadline') }}</td>
                     </tr>
                     <tr>
                         <td>Notification of acceptance</td>
-                        <td>19 November 2026</td>
+                        <td>{{ \App\Models\PageContent::text('important-dates.acceptance') }}</td>
                     </tr>
                     <tr>
                         <td>Submission of complete papers</td>
-                        <td>9 December 2026</td>
+                        <td>{{ \App\Models\PageContent::text('important-dates.full-paper') }}</td>
                     </tr>
                     <tr>
                         <td>Symposium held at ESTC Casablanca</td>
-                        <td>17-18 December 2026</td>
+                        <td>{{ \App\Models\PageContent::text('important-dates.symposium') }}</td>
                     </tr>
                     <tr>
                         <td>Submission of final versions for publication</td>
-                        <td>31 January 2027</td>
+                        <td>{{ \App\Models\PageContent::text('important-dates.final-version') }}</td>
                     </tr>
                 </tbody>
             </table>

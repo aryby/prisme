@@ -10,8 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Learn more about the The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (SIPRISME)
+                {{ \App\Models\PageContent::text('history.intro') }}
             </p>
         </div>
     </div>
@@ -22,10 +21,7 @@
         <div class="well">
             <h3>Symposium Overview</h3>
             <p>
-               SIPRISME 2026 is the second The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (SIPRISME). 
-                This Symposium aims to serve as a premier interdisciplinary platform for researchers, academics, practitioners, 
-                and policymakers to exchange knowledge and discuss emerging trends, challenges, and breakthroughs shaping the digital economy.
+                {{ \App\Models\PageContent::text('history.overview') }}
             </p>
         </div>
     </div>
@@ -36,9 +32,7 @@
         <div class="well">
             <h3>Symposium Mission</h3>
             <p>
-                The rise of artificial intelligence (AI), machine learning, and data analytics has transformed how businesses create value, 
-                governments design policy, and consumers engage with digital ecosystems.SIPRISME'26 seeks to explore these transformations 
-                through the lenses of technology, innovation, and economic development — connecting cutting-edge research with real-world applications.
+                {{ \App\Models\PageContent::text('history.mission') }}
             </p>
         </div>
     </div>

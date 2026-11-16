@@ -10,7 +10,7 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Meet the distinguished committee members of SIPRISME 2026
+                {{ \App\Models\PageContent::text('committees.intro') }}
             </p>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="well text-center">
             <h3>Committee Information</h3>
             <p>
-                Detailed information about all Symposium committees is available on our 
+                {{ \App\Models\PageContent::text('committees.details') }}
                 <a href="{{ route('committee') }}">Committee page</a>.
             </p>
             <p>

@@ -10,10 +10,10 @@
         </div>
         <div class="text-center">
             <p class="lead">
-                Distinguished speakers and industry leaders will share their insights on digital economy and data innovation.
+                {{ \App\Models\PageContent::text('speakers.intro') }}
             </p>
             <p class="text-info">
-                <strong>Speaker information will be announced soon. Please check back for updates.</strong>
+                <strong>{{ \App\Models\PageContent::text('speakers.announcement') }}</strong>
             </p>
         </div>
     </div>
@@ -24,10 +24,7 @@
         <div class="well text-center">
             <h3>Call for Speakers</h3>
             <p>
-                We are looking for distinguished speakers to share their expertise in digital economy, smart business, and data innovation.
-            </p>
-            <p>
-                If you are interested in speaking at SIPRISME 2026, please contact us at <strong>siprisme26@siprisme.org</strong>
+                {{ \App\Models\PageContent::text('speakers.call') }}
             </p>
         </div>
     </div>
