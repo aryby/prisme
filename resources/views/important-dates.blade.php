@@ -28,26 +28,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Abstract submission deadline</td>
-                        <td>{{ \App\Models\PageContent::text('important-dates.abstract-deadline') }}</td>
-                    </tr>
-                    <tr>
-                        <td>Notification of acceptance</td>
-                        <td>{{ \App\Models\PageContent::text('important-dates.acceptance') }}</td>
-                    </tr>
-                    <tr>
-                        <td>Submission of complete papers</td>
-                        <td>{{ \App\Models\PageContent::text('important-dates.full-paper') }}</td>
-                    </tr>
-                    <tr>
-                        <td>Symposium held at ESTC Casablanca</td>
-                        <td>{{ \App\Models\PageContent::text('important-dates.symposium') }}</td>
-                    </tr>
-                    <tr>
-                        <td>Submission of final versions for publication</td>
-                        <td>{{ \App\Models\PageContent::text('important-dates.final-version') }}</td>
-                    </tr>
+                    @foreach ($importantDates as $importantDate)
+                        <tr>
+                            <td>{{ $importantDate->title }}</td>
+                            <td>{{ $importantDate->date }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

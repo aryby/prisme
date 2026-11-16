@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(ImportantDateSeeder::class);
+        $this->call(CommitteePageSeeder::class);
+
         $admin = User::factory()->create([
             'name' => 'Symposium Admin',
             'email' => 'admin@siprisme.test',

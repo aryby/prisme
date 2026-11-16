@@ -25,6 +25,11 @@ class PageContent extends Model
         return $contents[$key] ?? $default;
     }
 
+    public static function submissionsEnabled(): bool
+    {
+        return static::text('submission.enabled') === '1';
+    }
+
     protected static function booted(): void
     {
         static::saved(fn () => Cache::forget('page-content'));

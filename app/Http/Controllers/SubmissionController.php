@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Paper;
+use App\Models\PageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -18,7 +19,9 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        return view('submission');
+        return view('submission', [
+            'submissionsEnabled' => PageContent::submissionsEnabled(),
+        ]);
     }
 
     /**
@@ -26,6 +29,12 @@ class SubmissionController extends Controller
      */
     public function store(Request $request)
     {
+        if (! PageContent::submissionsEnabled()) {
+            return redirect()
+                ->route('submission')
+                ->with('submission_closed', 'Paper submissions are currently closed.');
+        }
+
         $request->validate([
             'submission_option' => 'required|string|in:full_submission,abstract_submission',
             'title' => 'required|string|max:255',

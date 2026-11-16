@@ -21,11 +21,9 @@
         <div class="well">
             <h3>Important Dates</h3>
             <ul>
-                <li><strong>Abstract submission deadline:</strong> {{ \App\Models\PageContent::text('important-dates.abstract-deadline') }}</li>
-                <li><strong>Notification of acceptance:</strong> {{ \App\Models\PageContent::text('important-dates.acceptance') }}</li>
-                <li><strong>Full paper submission:</strong> {{ \App\Models\PageContent::text('important-dates.full-paper') }}</li>
-                <li><strong>Symposium dates:</strong> {{ \App\Models\PageContent::text('important-dates.symposium') }}</li>
-                <li><strong>Final versions for publication:</strong> {{ \App\Models\PageContent::text('important-dates.final-version') }}</li>
+                @foreach ($importantDates as $importantDate)
+                    <li><strong>{{ $importantDate->title }}:</strong> {{ $importantDate->date }}</li>
+                @endforeach
             </ul>
         </div>
     </div>

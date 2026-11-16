@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Reviewer\PaperDownloadController;
 use App\Http\Controllers\SubmissionController;
+use App\Models\ImportantDate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/call-for-papers', [CallForPapersController::class, 'index'])->name('call-for-papers');
 Route::view('/author-instructions', 'author-instructions')->name('author-instructions');
-Route::view('/important-dates', 'important-dates')->name('important-dates');
+Route::get('/important-dates', function () {
+    return view('important-dates', [
+        'importantDates' => ImportantDate::query()->where('is_active', true)->orderBy('sort_order')->get(),
+    ]);
+})->name('important-dates');
 Route::get('/committee', [CommitteeController::class, 'index'])->name('committee');
 Route::get('/submission', [SubmissionController::class, 'index'])->name('submission');
 Route::post('/submission', [SubmissionController::class, 'store'])->name('submission.store');
@@ -41,7 +46,11 @@ Route::view('/committees', 'committees')->name('committees');
 Route::view('/speakers', 'speakers')->name('speakers');
 Route::view('/calls', 'calls')->name('calls');
 Route::view('/publication', 'publication')->name('publication');
-Route::view('/dates-news', 'dates-news')->name('dates-news');
+Route::get('/dates-news', function () {
+    return view('dates-news', [
+        'importantDates' => ImportantDate::query()->where('is_active', true)->orderBy('sort_order')->get(),
+    ]);
+})->name('dates-news');
 Route::view('/attendees', 'attendees')->name('attendees');
 Route::view('/history', 'history')->name('history');
 

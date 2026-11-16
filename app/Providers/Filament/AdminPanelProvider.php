@@ -53,6 +53,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->widgets([
                 // AccountWidget::class,
+                \App\Filament\Widgets\SubmissionSettingsWidget::class,
                 \App\Filament\Widgets\AdminOverviewWidget::class,
                 \App\Filament\Widgets\RecentPapersWidget::class,
                  \App\Filament\Widgets\RecentUsersWidget::class,

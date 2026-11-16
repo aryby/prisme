@@ -55,8 +55,15 @@
 
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-horizontal" action="{{ route('submission.store') }}" method="POST"
-                enctype="multipart/form-data">
+            @if (session('submission_closed'))
+                <div class="alert alert-warning">
+                    {{ session('submission_closed') }}
+                </div>
+            @endif
+
+            @if ($submissionsEnabled)
+                <form class="form-horizontal" action="{{ route('submission.store') }}" method="POST"
+                    enctype="multipart/form-data">
                 @csrf
 
                 @if (session('status'))
@@ -467,7 +474,12 @@
                         <button type="reset" class="btn btn-default btn-large">Reset Form</button>
                     </div>
                 </div>
-            </form>
+                </form>
+            @else
+                <div class="alert alert-warning">
+                    Paper submissions are currently closed.
+                </div>
+            @endif
         </div>
     </div>
 

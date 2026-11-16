@@ -197,9 +197,17 @@ return [
         'label' => 'Calls — sponsorship',
         'default' => 'We offer various sponsorship opportunities for organizations interested in supporting SIPRISME 2026. For sponsorship information, please contact us at siprisme26@siprisme.org',
     ],
-    'committee.organizing' => [
-        'label' => 'Committee — organizing committee',
-        'default' => "Prof. Hamid AMIFI\nProf. Abderrahim BENLAKOUIRI\nProf. Youssef BOUAZZAMA\nProf. Adil CHTIOUI\nProf. Abdessamad DIBI\nProf. Najoua ELBORJI\nProf. Abennassar EL FIGHA\nProf. Alaa Eddine EL MOUSSAOUI\nProf. Meriem EL OUAFI\nProf. Fatima EZZAHRA KHANFAR\nProf. Ali HEBAZ\nProf. Jamila JOUALI\nProf. Taoufik KHIYAR\nProf. Aziz LAAROUSSI\nProf. Latifa HAMADANI\nProf. Hasna MHARZI\nProf. Mohamed NABAOUI\nProf. Hicham NOURI",
+    'committee.title' => [
+        'label' => 'Committee — page title',
+        'default' => 'Committee - SIPRISME 2026',
+    ],
+    'committee.description' => [
+        'label' => 'Committee — page description',
+        'default' => 'Meet the distinguished committee members of SIPRISME 2026, including the honorary committee, steering committee, scientific committee, and symposium secretariat.',
+    ],
+    'committee.page' => [
+        'label' => 'Committee — page content',
+        'default' => require __DIR__.'/committee-page.php',
     ],
     'committees.intro' => [
         'label' => 'Committees — introduction',
@@ -300,6 +308,10 @@ return [
     'submission.modalities' => [
         'label' => 'Submission — modalities',
         'default' => 'Submission takes place in two stages: an abstract first, followed by the full paper after acceptance.',
+    ],
+    'submission.enabled' => [
+        'label' => 'Submission — accept paper submissions',
+        'default' => '1',
     ],
     'submission.extended-abstract' => [
         'label' => 'Submission — extended abstract requirements',
