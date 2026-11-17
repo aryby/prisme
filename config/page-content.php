@@ -5,6 +5,14 @@ return [
         'label' => 'Site appearance — header logo',
         'default' => '',
     ],
+    'site.header-title' => [
+        'label' => 'Site appearance — header title',
+        'default' => 'The Multidisciplinary Research Laboratory in Social Engineering and Business Management (SIPRISME)',
+    ],
+    'site.header-details' => [
+        'label' => 'Site appearance — header details',
+        'default' => '17-18 December 2026 // Casablanca, Morocco',
+    ],
     'about.intro' => [
         'label' => 'About SIPRISME — introduction',
         'default' => 'Discover the vision, mission, and exciting program that makes SIPRISME 2026 a premier destination for digital economy and data innovation research.',

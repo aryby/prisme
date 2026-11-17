@@ -10,15 +10,21 @@ class SiteAppearanceSeeder extends Seeder
 {
     public function run(): void
     {
-        $field = config('page-content')['site.logo'];
+        $fields = config('page-content');
+        $now = now();
+        $contents = [];
 
-        DB::table('page_contents')->insertOrIgnore([
-            'key' => 'site.logo',
-            'label' => $field['label'],
-            'content' => $field['default'],
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        foreach (['site.logo', 'site.header-title', 'site.header-details'] as $key) {
+            $contents[] = [
+                'key' => $key,
+                'label' => $fields[$key]['label'],
+                'content' => $fields[$key]['default'],
+                'created_at' => $now,
+                'updated_at' => $now,
+            ];
+        }
+
+        DB::table('page_contents')->insertOrIgnore($contents);
 
         Cache::forget('page-content');
     }

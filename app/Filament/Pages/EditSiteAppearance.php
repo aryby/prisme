@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Models\PageContent;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
@@ -36,6 +37,8 @@ class EditSiteAppearance extends Page
     {
         $this->form->fill([
             'logo' => PageContent::text('site.logo'),
+            'header_title' => PageContent::text('site.header-title'),
+            'header_details' => PageContent::text('site.header-details'),
         ]);
     }
 
@@ -44,7 +47,7 @@ class EditSiteAppearance extends Page
         return $schema
             ->components([
                 Section::make('Website header')
-                    ->description('Upload a logo for the public website header. Remove the uploaded image to use the original logo again.')
+                    ->description('Edit the public header text and upload its logo. Remove the uploaded image to use the original logo again.')
                     ->schema([
                         FileUpload::make('logo')
                             ->label('Header logo')
@@ -55,7 +58,17 @@ class EditSiteAppearance extends Page
                             ->visibility('public')
                             ->maxSize(5120)
                             ->imageEditor()
-                            ->helperText('Upload a JPG, PNG, WebP, or SVG image up to 5 MB.')
+                            ->helperText('Upload a JPG, PNG, or WebP image up to 5 MB.')
+                            ->columnSpanFull(),
+                        TextInput::make('header_title')
+                            ->label('Header title')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        TextInput::make('header_details')
+                            ->label('Header date and location')
+                            ->required()
+                            ->maxLength(255)
                             ->columnSpanFull(),
                     ]),
             ])
@@ -68,15 +81,20 @@ class EditSiteAppearance extends Page
 
         $data = $this->form->getState();
         $fields = config('page-content');
-        $field = $fields['site.logo'];
 
-        PageContent::query()->updateOrCreate(
-            ['key' => 'site.logo'],
-            [
-                'label' => $field['label'],
-                'content' => $data['logo'] ?? '',
-            ],
-        );
+        foreach ([
+            'site.logo' => 'logo',
+            'site.header-title' => 'header_title',
+            'site.header-details' => 'header_details',
+        ] as $key => $fieldName) {
+            PageContent::query()->updateOrCreate(
+                ['key' => $key],
+                [
+                    'label' => $fields[$key]['label'],
+                    'content' => $data[$fieldName] ?? '',
+                ],
+            );
+        }
 
         Notification::make()
             ->title('Site appearance saved')

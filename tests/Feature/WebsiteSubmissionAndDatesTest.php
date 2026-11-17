@@ -104,6 +104,10 @@ class WebsiteSubmissionAndDatesTest extends TestCase
         Livewire::actingAs($admin)
             ->test(EditSiteAppearance::class)
             ->set('data.logo', UploadedFile::fake()->image('new-logo.png'))
+            ->fillForm([
+                'header_title' => 'Updated SIPRISME header title',
+                'header_details' => '20-21 December 2026 // Rabat, Morocco',
+            ])
             ->call('save')
             ->assertHasNoFormErrors();
 
@@ -116,7 +120,9 @@ class WebsiteSubmissionAndDatesTest extends TestCase
         $this->get(route('home'))
             ->assertOk()
             ->assertSee('src="'.asset('storage/'.$logoPath).'"', false)
-            ->assertDontSee('src="'.asset('img/logo/lgo.jpg').'"', false);
+            ->assertDontSee('src="'.asset('img/logo/lgo.jpg').'"', false)
+            ->assertSee('Updated SIPRISME header title')
+            ->assertSee('20-21 December 2026 // Rabat, Morocco');
     }
 
     public function test_non_admin_cannot_access_site_appearance_settings(): void
@@ -142,12 +148,21 @@ class WebsiteSubmissionAndDatesTest extends TestCase
         ]);
 
         PageContent::query()->where('key', 'site.logo')->delete();
+        PageContent::query()->whereIn('key', ['site.header-title', 'site.header-details'])->delete();
         $this->seed(SiteAppearanceSeeder::class);
 
         $this->assertDatabaseHas('page_contents', [
             'key' => 'site.logo',
             'label' => config('page-content')['site.logo']['label'],
             'content' => '',
+        ]);
+        $this->assertDatabaseHas('page_contents', [
+            'key' => 'site.header-title',
+            'content' => config('page-content')['site.header-title']['default'],
+        ]);
+        $this->assertDatabaseHas('page_contents', [
+            'key' => 'site.header-details',
+            'content' => config('page-content')['site.header-details']['default'],
         ]);
     }
 

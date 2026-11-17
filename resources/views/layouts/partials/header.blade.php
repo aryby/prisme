@@ -1,4 +1,6 @@
 @php($headerLogo = \App\Models\PageContent::text('site.logo'))
+@php($headerTitle = \App\Models\PageContent::text('site.header-title'))
+@php($headerDetails = \App\Models\PageContent::text('site.header-details'))
 
 <!-- Navigation -->
 <header>
@@ -14,11 +16,10 @@
                 <div class="topinfo">
                     <p><br></p>
                     <div class="infophone">
-                        <a href="#">The Multidisciplinary Research Laboratory in Social Engineering and Business
- Management (SIPRISME)</a>
+                        <a href="#">{{ $headerTitle }}</a>
                     </div>
                     <div class="infoaddress">
-                        <p>17-18 December 2026 // Casablanca, Morocco</p>
+                        <p>{{ $headerDetails }}</p>
                     </div>
                                             @include('partials.partnes-logo')
 
