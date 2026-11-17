@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'site.logo' => [
+        'label' => 'Site appearance — header logo',
+        'default' => '',
+    ],
     'about.intro' => [
         'label' => 'About SIPRISME — introduction',
         'default' => 'Discover the vision, mission, and exciting program that makes SIPRISME 2026 a premier destination for digital economy and data innovation research.',

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Filament\Pages\EditCommitteePage;
+use App\Filament\Pages\EditSiteAppearance;
 use App\Filament\Resources\ImportantDateResource\Pages\CreateImportantDate;
 use App\Filament\Resources\ImportantDateResource\Pages\EditImportantDate;
 use App\Filament\Resources\PageContentResource\Pages\EditPageContent;
@@ -12,8 +13,11 @@ use App\Models\PageContent;
 use App\Models\User;
 use Database\Seeders\CommitteePageSeeder;
 use Database\Seeders\ImportantDateSeeder;
+use Database\Seeders\SiteAppearanceSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Livewire\Livewire;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Tests\TestCase;
 
@@ -90,6 +94,61 @@ class WebsiteSubmissionAndDatesTest extends TestCase
         $this->actingAs($author)
             ->get(EditCommitteePage::getUrl())
             ->assertForbidden();
+    }
+
+    public function test_admin_can_change_the_public_header_logo(): void
+    {
+        Storage::fake('public');
+        $admin = User::factory()->create(['role' => 'admin']);
+
+        Livewire::actingAs($admin)
+            ->test(EditSiteAppearance::class)
+            ->set('data.logo', UploadedFile::fake()->image('new-logo.png'))
+            ->call('save')
+            ->assertHasNoFormErrors();
+
+        $logoPath = PageContent::query()->where('key', 'site.logo')->value('content');
+
+        $this->assertIsString($logoPath);
+        $this->assertStringStartsWith('site/', $logoPath);
+        Storage::disk('public')->assertExists($logoPath);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('src="'.asset('storage/'.$logoPath).'"', false)
+            ->assertDontSee('src="'.asset('img/logo/lgo.jpg').'"', false);
+    }
+
+    public function test_non_admin_cannot_access_site_appearance_settings(): void
+    {
+        $author = User::factory()->create(['role' => 'author']);
+
+        $this->actingAs($author)
+            ->get(EditSiteAppearance::getUrl())
+            ->assertForbidden();
+    }
+
+    public function test_site_appearance_seeder_adds_missing_logo_setting_without_overwriting_admin_logo(): void
+    {
+        PageContent::query()->where('key', 'site.logo')->update([
+            'content' => 'site/custom-logo.png',
+        ]);
+
+        $this->seed(SiteAppearanceSeeder::class);
+
+        $this->assertDatabaseHas('page_contents', [
+            'key' => 'site.logo',
+            'content' => 'site/custom-logo.png',
+        ]);
+
+        PageContent::query()->where('key', 'site.logo')->delete();
+        $this->seed(SiteAppearanceSeeder::class);
+
+        $this->assertDatabaseHas('page_contents', [
+            'key' => 'site.logo',
+            'label' => config('page-content')['site.logo']['label'],
+            'content' => '',
+        ]);
     }
 
     public function test_committee_page_migration_preserves_existing_organizing_committee_edits(): void

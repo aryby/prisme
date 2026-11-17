@@ -34,6 +34,7 @@ class PageContentResource extends Resource
                 'committee.title',
                 'committee.description',
                 'committee.page',
+                'site.logo',
             ]);
     }
 

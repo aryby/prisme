@@ -1,3 +1,5 @@
+@php($headerLogo = \App\Models\PageContent::text('site.logo'))
+
 <!-- Navigation -->
 <header>
     <div class="container clearfix">
@@ -5,7 +7,7 @@
             <div class="span12">
                 <h1 class="brandlogo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('img/logo/lgo.jpg') }}" alt="" width="200" height="60">
+                        <img src="{{ filled($headerLogo) ? asset('storage/'.$headerLogo) : asset('img/logo/lgo.jpg') }}" alt="SIPRISME 2026" width="200" height="60">
                     </a>
                 </h1>
 

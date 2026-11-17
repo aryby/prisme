@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ImportantDateSeeder::class);
         $this->call(CommitteePageSeeder::class);
+        $this->call(SiteAppearanceSeeder::class);
 
         $admin = User::factory()->create([
             'name' => 'Symposium Admin',
