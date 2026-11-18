@@ -61,16 +61,13 @@
         <div class="accordion">
             <p>
                 <strong>
-                    <img src="{{ asset('img/logo/hot.gif') }}" width="20" height="20"> Abstract submission deadline: <br>
-                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.abstract-deadline') }}</span><br><br>
-                    Notification of acceptance: <br>
-                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.acceptance') }}</span><br><br>
-                    Full paper submission: <br>
-                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.full-paper') }}</span><br><br>
-                    Symposium dates: <br>
-                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.symposium') }}</span><br><br>
-                    Final versions for publication: <br>
-                    <span class="STYLE3">{{ \App\Models\PageContent::text('important-dates.final-version') }}</span>
+                    @foreach ($importantDates as $importantDate)
+                        @if ($loop->first)
+                            <img src="{{ asset('img/logo/hot.gif') }}" width="20" height="20">
+                        @endif
+                        {{ $importantDate->title }}: <br>
+                        <span class="STYLE3">{{ $importantDate->date }}</span>@if (!$loop->last)<br><br>@endif
+                    @endforeach
                 </strong>
             </p>
             <p>&nbsp;</p>

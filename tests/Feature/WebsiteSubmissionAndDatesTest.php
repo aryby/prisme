@@ -253,6 +253,9 @@ class WebsiteSubmissionAndDatesTest extends TestCase
     public function test_admin_can_create_update_and_delete_public_important_dates(): void
     {
         $admin = User::factory()->create(['role' => 'admin']);
+        PageContent::query()->where('key', 'important-dates.abstract-deadline')->update([
+            'content' => 'Legacy date that should not appear',
+        ]);
 
         Livewire::actingAs($admin)
             ->test(CreateImportantDate::class)
@@ -272,6 +275,12 @@ class WebsiteSubmissionAndDatesTest extends TestCase
             ->assertSee('Registration deadline')
             ->assertSee('10 December 2026');
 
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('Registration deadline')
+            ->assertSee('10 December 2026')
+            ->assertDontSee('Legacy date that should not appear');
+
         Livewire::actingAs($admin)
             ->test(EditImportantDate::class, ['record' => $date->getRouteKey()])
             ->fillForm([
@@ -288,6 +297,11 @@ class WebsiteSubmissionAndDatesTest extends TestCase
             ->assertSee('Updated registration deadline')
             ->assertSee('12 December 2026')
             ->assertDontSee('Registration deadline:');
+
+        $this->get(route('home'))
+            ->assertSee('Updated registration deadline')
+            ->assertSee('12 December 2026')
+            ->assertDontSee('10 December 2026');
 
         Livewire::actingAs($admin)
             ->test(EditImportantDate::class, ['record' => $date->getRouteKey()])
