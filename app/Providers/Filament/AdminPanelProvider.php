@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\EditProfile;
+use Ferga\FilamentBuilder\FergaBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -58,6 +59,16 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Widgets\RecentPapersWidget::class,
                  \App\Filament\Widgets\RecentUsersWidget::class,
             ])
+            ->plugin(
+                FergaBuilderPlugin::make()
+                    ->locales([
+                        'en' => 'English',
+                        'ar' => 'العربية',
+                        'fr' => 'Français',
+                        'ku' => 'کوردی',
+                    ])
+                    ->defaultLocale('en')
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

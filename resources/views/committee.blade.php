@@ -5,6 +5,11 @@
 
 @section('content')
     <div class="row-fluid committee-content">
-        {!! str(\App\Models\PageContent::text('committee.page'))->sanitizeHtml() !!}
+        @php($committeePage = \App\Models\PageContent::query()->where('key', 'committee.page')->first())
+        @if (filled($committeePage?->builder_content))
+            {!! $committeePage->renderBuilder('builder_content', app()->getLocale()) !!}
+        @else
+            {!! str(\App\Models\PageContent::text('committee.page'))->sanitizeHtml() !!}
+        @endif
     </div>
 @endsection

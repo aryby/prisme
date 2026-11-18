@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageContentResource\Pages\EditPageContent;
 use App\Filament\Resources\PageContentResource\Pages\ListPageContents;
 use App\Models\PageContent;
+use Ferga\FilamentBuilder\Filament\Actions\OpenCanvasAction;
+use Ferga\FilamentBuilder\Forms\Components\PageBuilder;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
@@ -67,22 +69,33 @@ class PageContentResource extends Resource
                                 ->required()
                                 ->maxLength(20000)
                                 ->columnSpanFull(),
-                            'committee.page' => Forms\Components\RichEditor::make('content')
+                            'committee.page' => PageBuilder::make('builder_content')
                                 ->label('Committee page content')
-                                ->required()
-                                ->maxLength(50000)
+                                ->blocks(['section', 'heading', 'rich_text', 'cards', 'highlights', 'image', 'image_text', 'gallery', 'quote', 'divider', 'spacer'])
                                 ->columnSpanFull(),
                             'submission.enabled' => Forms\Components\Toggle::make('content')
                                 ->label('Accept paper submissions')
                                 ->formatStateUsing(fn (?string $state): bool => $state === '1')
                                 ->dehydrateStateUsing(fn (bool $state): string => $state ? '1' : '0')
                                 ->helperText('When disabled, visitors cannot submit papers.'),
-                            default => Forms\Components\Textarea::make('content')
-                                ->label('Text')
-                                ->rows(8)
-                                ->required()
-                                ->maxLength(20000)
-                                ->columnSpanFull(),
+                            default => match (true) {
+                                str_starts_with((string) $record?->key, 'submission.') =>
+                                    Forms\Components\Toggle::make('content')
+                                        ->label('Enabled')
+                                        ->formatStateUsing(fn (?string $state): bool => $state === '1')
+                                        ->dehydrateStateUsing(fn (bool $state): string => $state ? '1' : '0'),
+                                filled($record?->key) =>
+                                    PageBuilder::make('builder_content')
+                                        ->label('Multilingual page content')
+                                        ->blocks(['heading', 'rich_text', 'cards', 'highlights', 'image', 'image_text', 'gallery', 'quote', 'divider', 'spacer'])
+                                        ->columnSpanFull(),
+                                default => Forms\Components\Textarea::make('content')
+                                    ->label('Text')
+                                    ->rows(8)
+                                    ->required()
+                                    ->maxLength(20000)
+                                    ->columnSpanFull(),
+                            },
                         },
                     ])
                     ->columns(2),
@@ -123,6 +136,7 @@ class PageContentResource extends Resource
         return [
             'index' => ListPageContents::route('/'),
             'edit' => EditPageContent::route('/{record}/edit'),
+            'builder' => \App\Filament\Resources\PageContentResource\Pages\PageContentBuilderCanvas::route('/{record}/builder'),
         ];
     }
 }

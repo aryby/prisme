@@ -10,7 +10,12 @@
             <div>Program</div>
         </div>
         <div class="well">
-            {!! str(\App\Models\PageContent::text('program.page'))->sanitizeHtml() !!}
+            @php($programPage = \App\Models\PageContent::query()->where('key', 'program.page')->first())
+            @if (filled($programPage?->builder_content))
+                {!! $programPage->renderBuilder('builder_content', app()->getLocale()) !!}
+            @else
+                {!! str(\App\Models\PageContent::text('program.page'))->sanitizeHtml() !!}
+            @endif
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bed664a3137a0af20c24a0f2c8436f70",
+    "content-hash": "028ecdc18ee33e5132f3322d03ebf6fa",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5263,6 +5263,80 @@
                 }
             ],
             "time": "2022-12-17T21:53:22+00:00"
+        },
+        {
+            "name": "shadcs/ferga-builder-mutlilanguage-rtl-support",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support.git",
+                "reference": "40058889ce394ded2720be335c559e9efd2c99e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shadcs/ferga-builder-mutlilanguage-rtl-support/zipball/40058889ce394ded2720be335c559e9efd2c99e1",
+                "reference": "40058889ce394ded2720be335c559e9efd2c99e1",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.13|^5.8",
+                "illuminate/contracts": "^11.28|^12.0|^13.0",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.32",
+                "orchestra/testbench": "^9.0|^10.0|^11.0",
+                "pestphp/pest": "^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+                "pestphp/pest-plugin-livewire": "^3.0|^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ferga\\FilamentBuilder\\FergaBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ferga\\FilamentBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ferga Solutions",
+                    "homepage": "https://github.com/ferga",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Drag-and-drop visual page builder for Filament with multilingual content, RTL support (Arabic, Kurdish, Persian, Hebrew) and ready-made templates.",
+            "homepage": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support",
+            "keywords": [
+                "Chinese",
+                "arabic",
+                "blocks",
+                "filament",
+                "filament-plugin",
+                "filamentphp",
+                "kurdish",
+                "laravel",
+                "multilingual",
+                "page-builder",
+                "rtl",
+                "templates",
+                "translations",
+                "visual-editor"
+            ],
+            "support": {
+                "issues": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support/issues",
+                "source": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support"
+            },
+            "time": "2026-11-13T21:07:22+00:00"
         },
         {
             "name": "spatie/invade",

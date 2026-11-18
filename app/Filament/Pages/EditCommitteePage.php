@@ -3,7 +3,9 @@
 namespace App\Filament\Pages;
 
 use App\Models\PageContent;
-use Filament\Forms\Components\RichEditor;
+use Ferga\FilamentBuilder\FergaBuilder;
+use Ferga\FilamentBuilder\Forms\Components\PageBuilder;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -34,12 +36,37 @@ class EditCommitteePage extends Page
         return auth()->user()?->isAdmin() ?? false;
     }
 
+    protected function getHeaderActions(): array
+    {
+        $record = PageContent::query()->where('key', 'committee.page')->first();
+
+        return $record ? [
+            Action::make('openBuilder')
+                ->label('Open visual builder')
+                ->icon('heroicon-o-paint-brush')
+                ->url(\App\Filament\Resources\PageContentResource::getUrl(
+                    'builder',
+                    ['record' => $record],
+                )),
+        ] : [];
+    }
+
     public function mount(): void
     {
+        $record = PageContent::query()->where('key', 'committee.page')->first();
+        $documents = app(FergaBuilder::class)->normalizeDocuments($record?->builder_content);
+
+        if ($documents === []) {
+            $legacyContent = PageContent::text('committee.page');
+            $documents = $legacyContent !== ''
+                ? ['en' => [['type' => 'rich_text', 'data' => ['body' => $legacyContent]]]]
+                : [];
+        }
+
         $this->form->fill([
             'title' => PageContent::text('committee.title'),
             'description' => PageContent::text('committee.description'),
-            'content' => PageContent::text('committee.page'),
+            'content' => $documents,
         ]);
     }
 
@@ -60,11 +87,10 @@ class EditCommitteePage extends Page
                     ])
                     ->columns(2),
                 Section::make('Committee content')
-                    ->description('Edit all committee headings, member lists, and contact details here.')
+                    ->description('Build the committee page with the multilingual visual editor.')
                     ->schema([
-                        RichEditor::make('content')
-                            ->required()
-                            ->maxLength(50000)
+                        PageBuilder::make('content')
+                            ->blocks(['section', 'heading', 'rich_text', 'cards', 'highlights', 'divider', 'spacer'])
                             ->columnSpanFull(),
                     ]),
             ])
@@ -81,7 +107,6 @@ class EditCommitteePage extends Page
         foreach ([
             'committee.title' => 'title',
             'committee.description' => 'description',
-            'committee.page' => 'content',
         ] as $key => $fieldName) {
             PageContent::query()->updateOrCreate(
                 ['key' => $key],
@@ -91,6 +116,29 @@ class EditCommitteePage extends Page
                 ],
             );
         }
+
+        $pageRecord = PageContent::query()->where('key', 'committee.page')->first();
+        $documents = $data['content'] ?? [];
+
+        if ($pageRecord) {
+            $pageRecord->update(['builder_content' => $documents]);
+        } else {
+            $pageRecord = PageContent::query()->create([
+                'key' => 'committee.page',
+                'label' => config('page-content.committee.page.label'),
+                'builder_content' => $documents,
+                'content' => '',
+            ]);
+        }
+
+        $legacyHtml = collect($documents['en'] ?? [])
+            ->map(fn (array $block): string => $block['type'] === 'rich_text'
+                ? (string) ($block['data']['body'] ?? '')
+                : '')
+            ->filter()
+            ->implode("\n");
+
+        $pageRecord->update(['content' => $legacyHtml]);
 
         Notification::make()
             ->title('Committee page saved')

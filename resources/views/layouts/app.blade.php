@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="{{ asset('img/logo/lgo.jpg') }}">
     <link rel="stylesheet" href="{{ asset('inspire.css') }}">
     <link rel="stylesheet" href="{{ asset('prisme-custom.css') }}">
+    <x-ferga-builder::styles />
     
     @stack('styles')
 </head>

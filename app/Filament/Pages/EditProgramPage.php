@@ -3,7 +3,9 @@
 namespace App\Filament\Pages;
 
 use App\Models\PageContent;
-use Filament\Forms\Components\RichEditor;
+use Ferga\FilamentBuilder\FergaBuilder;
+use Ferga\FilamentBuilder\Forms\Components\PageBuilder;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -34,12 +36,37 @@ class EditProgramPage extends Page
         return auth()->user()?->isAdmin() ?? false;
     }
 
+    protected function getHeaderActions(): array
+    {
+        $record = PageContent::query()->where('key', 'program.page')->first();
+
+        return $record ? [
+            Action::make('openBuilder')
+                ->label('Open visual builder')
+                ->icon('heroicon-o-paint-brush')
+                ->url(\App\Filament\Resources\PageContentResource::getUrl(
+                    'builder',
+                    ['record' => $record],
+                )),
+        ] : [];
+    }
+
     public function mount(): void
     {
+        $record = PageContent::query()->where('key', 'program.page')->first();
+        $documents = app(FergaBuilder::class)->normalizeDocuments($record?->builder_content);
+
+        if ($documents === []) {
+            $legacyContent = PageContent::text('program.page');
+            $documents = $legacyContent !== ''
+                ? ['en' => [['type' => 'rich_text', 'data' => ['body' => $legacyContent]]]]
+                : [];
+        }
+
         $this->form->fill([
             'title' => PageContent::text('program.title'),
             'description' => PageContent::text('program.description'),
-            'content' => PageContent::text('program.page'),
+            'content' => $documents,
         ]);
     }
 
@@ -60,11 +87,10 @@ class EditProgramPage extends Page
                     ])
                     ->columns(2),
                 Section::make('Program content')
-                    ->description('Edit the public Program page with the rich-text editor.')
+                    ->description('Build the public Program page with the multilingual visual editor.')
                     ->schema([
-                        RichEditor::make('content')
-                            ->required()
-                            ->maxLength(50000)
+                        PageBuilder::make('content')
+                            ->blocks(['section', 'heading', 'rich_text', 'cards', 'highlights', 'divider', 'spacer'])
                             ->columnSpanFull(),
                     ]),
             ])
@@ -82,7 +108,6 @@ class EditProgramPage extends Page
         foreach ([
             'program.title' => 'title',
             'program.description' => 'description',
-            'program.page' => 'content',
         ] as $key => $fieldName) {
             PageContent::query()->updateOrCreate(
                 ['key' => $key],
@@ -92,6 +117,29 @@ class EditProgramPage extends Page
                 ],
             );
         }
+
+        $pageRecord = PageContent::query()->where('key', 'program.page')->first();
+        $documents = $data['content'] ?? [];
+
+        if ($pageRecord) {
+            $pageRecord->update(['builder_content' => $documents]);
+        } else {
+            $pageRecord = PageContent::query()->create([
+                'key' => 'program.page',
+                'label' => config('page-content.program.page.label'),
+                'builder_content' => $documents,
+                'content' => '',
+            ]);
+        }
+
+        $legacyHtml = collect($documents['en'] ?? [])
+            ->map(fn (array $block): string => $block['type'] === 'rich_text'
+                ? (string) ($block['data']['body'] ?? '')
+                : '')
+            ->filter()
+            ->implode("\n");
+
+        $pageRecord->update(['content' => $legacyHtml]);
 
         Notification::make()
             ->title('Program page saved')
