@@ -49,6 +49,7 @@
 
                             <li><a href="{{ route('submission') }}">SUBMISSION</a></li>
                             <li class="divider-vertical"></li>
+                            <li><a href="{{ route('program') }}">PROGRAM</a></li>
                             <li><a href="{{ route('venue') }}">VENUE</a></li>
                             <li><a href="{{ route('contact') }}">CONTACT</a></li>
                             <li class="divider-vertical"></li>

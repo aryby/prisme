@@ -305,17 +305,17 @@ return [
         'label' => 'Home — thematic areas introduction',
         'default' => 'Research papers may address any of the following themes. This list is not exhaustive.',
     ],
-    'program.intro' => [
-        'label' => 'Program — introduction',
-        'default' => 'Detailed program schedule will be announced soon.',
+    'program.title' => [
+        'label' => 'Program — page title',
+        'default' => 'Program - SIPRISME 2026',
     ],
-    'program.schedule' => [
-        'label' => 'Program — schedule overview',
-        'default' => 'SIPRISME 2026 will feature keynote presentations, parallel sessions, workshops, and networking opportunities.',
+    'program.description' => [
+        'label' => 'Program — page description',
+        'default' => 'The SIPRISME 2026 symposium program will be available soon.',
     ],
-    'program.contact' => [
-        'label' => 'Program — contact email',
-        'default' => 'siprisme26@siprisme.org',
+    'program.page' => [
+        'label' => 'Program — page content',
+        'default' => '<h2>Coming Soon</h2><p>The SIPRISME 2026 symposium program will be available soon.</p>',
     ],
     'submission.modalities' => [
         'label' => 'Submission — modalities',

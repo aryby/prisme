@@ -37,6 +37,12 @@ class PageContentResource extends Resource
                 'site.logo',
                 'site.header-title',
                 'site.header-details',
+                'program.title',
+                'program.description',
+                'program.page',
+                'program.intro',
+                'program.schedule',
+                'program.contact',
             ]);
     }
 
